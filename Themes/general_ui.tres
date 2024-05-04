@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://k86iiekmveix"]
+
+[ext_resource type="FontFile" uid="uid://bkit7lay5kydg" path="res://Fonts/Monocraft.ttf" id="1_gbcri"]
+
+[resource]
+default_font = ExtResource("1_gbcri")

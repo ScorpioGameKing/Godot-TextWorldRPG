@@ -1,0 +1,9 @@
+[gd_resource type="CodeHighlighter" format=3 uid="uid://cb7aoitm6bpdr"]
+
+[resource]
+number_color = Color(1, 0.705882, 0, 1)
+symbol_color = Color(1, 1, 1, 1)
+keyword_colors = {
+"hh": Color(0, 0.670588, 0, 1),
+"mm": Color(0, 0.470588, 1, 1)
+}
