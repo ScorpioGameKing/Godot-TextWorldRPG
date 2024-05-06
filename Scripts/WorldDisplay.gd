@@ -1,9 +1,9 @@
-extends TextEdit
+extends RichTextLabel
 
 var savedFrame = "f09g18d02s01~05f10g15d03s03~04f11g06T03g06d03s02~04f12g05T03g06d02s02~05f10g07p02g08d02s02~04f10g07p02g08d04s01~03f09g08p02g09d02s02~03f08p10P01g08d04s01~03f08p11g09d02s01~04f09g08p02g10d02s01~03f07g10p02g11d02s01~02f06g11p02g11d02s01~02f04g13p09T03g02d01s01~02f02g15p09T03g01d02s01~02f01g10B01g05p02g11d01s02~02g17p02g12d01s02~01g17p02g13d01s01~01g17p08g07d01s02g17p08g07d03g23p02g08d02g23p02g10g23p02g10"
 var loadedFrame
 var testSaveFrame
-static var worldDims = [35, 22]
+static var worldDims = [35, 21]
 
 func _ready():
 	loadedFrame = loadCharString(savedFrame)
@@ -22,10 +22,19 @@ func upadateFrame(newFrame):
 		for _x in range(worldDims[0]):
 			# print("Col: " + str(_x))
 			# print(str(newFrame[_x + (worldDims[0] * _y)]))
-			_row += str(newFrame[_x + (worldDims[0] * _y)])
+			var _tileData = InitData.findTileData("debug", str(newFrame[_x + (worldDims[0] * _y)]))[0]
+			if typeof(_tileData) == TYPE_BOOL:
+				_row += str(
+					newFrame[_x + (worldDims[0] * _y)]
+				)
+			else:
+				_row += "[color=" + _tileData["tile_color"] + "]" + str(
+					newFrame[_x + (worldDims[0] * _y)]
+				) + "[/color]"
 			#print(str(newFrame[_x + (worldDims[0] * _y) - 1]) + str(newFrame[_x + (worldDims[0] * _y)]))
 			if _x != worldDims[0] - 1:
-				_row += " "
+				# _row += " "
+				pass
 		if _y != worldDims[1] - 1:
 			_row += "\n"
 		# print(_row)

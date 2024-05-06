@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/console_window.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
+[autoload]
+
+InitData="*res://Scripts/Initialization.gd"
+
 [display]
 
 window/size/resizable=false
