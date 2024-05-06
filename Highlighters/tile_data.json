@@ -43,7 +43,7 @@
 					"tile_color": "7a7476",
 					"tile_flags": [
 						{
-							"walkable": false,
+							"walkable": true,
 							"can_interact": false,
 							"is_warp_tile": false,
 							"harmful": false
@@ -60,7 +60,7 @@
 					"tile_color": "683627",
 					"tile_flags": [
 						{
-							"walkable": false,
+							"walkable": true,
 							"can_interact": false,
 							"is_warp_tile": false,
 							"harmful": false
@@ -78,7 +78,7 @@
 					"tile_color": "ffe8a3",
 					"tile_flags": [
 						{
-							"walkable": false,
+							"walkable": true,
 							"can_interact": false,
 							"is_warp_tile": false,
 							"harmful": false
@@ -113,8 +113,8 @@
 					"tile_flags": [
 						{
 							"walkable": false,
-							"can_interact": false,
-							"is_warp_tile": false,
+							"can_interact": true,
+							"is_warp_tile": true,
 							"harmful": false
 						}
 					]
@@ -144,6 +144,23 @@
 				{
 					"tile_name": "Bandit",
 					"tile_color": "ff0000",
+					"tile_flags": [
+						{
+							"walkable": false,
+							"can_interact": true,
+							"is_warp_tile": false,
+							"harmful": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"tile_symbol": "x",
+			"tile_data": [
+				{
+					"tile_name": "BG",
+					"tile_color": "553565",
 					"tile_flags": [
 						{
 							"walkable": false,
