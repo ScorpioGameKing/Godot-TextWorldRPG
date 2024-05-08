@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://4rq3m7jh0ym6"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_ll8bb"]
+[ext_resource type="Script" path="res://Scripts/CommandEnter.gd" id="2_od8l6"]
+
+[node name="Control" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(764, 256)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 764.0
+offset_bottom = 254.0
+
+[node name="Input" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(764, 233)
+layout_mode = 0
+offset_right = 764.0
+offset_bottom = 256.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_ll8bb")
+theme_override_constants/separation = 1
+
+[node name="LabelBG" type="Panel" parent="Input"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("1_ll8bb")
+
+[node name="Label" type="Label" parent="Input/LabelBG"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 760.0
+offset_bottom = 23.0
+theme = ExtResource("1_ll8bb")
+text = "Command Input
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Input"]
+custom_minimum_size = Vector2(764, 206)
+layout_mode = 2
+
+[node name="CommandDisplay" type="RichTextLabel" parent="Input/Panel"]
+layout_mode = 2
+offset_right = 764.0
+offset_bottom = 207.0
+size_flags_vertical = 3
+theme = ExtResource("1_ll8bb")
+bbcode_enabled = true
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("2_od8l6")
+
+[node name="CommandEnter" type="LineEdit" parent="Input"]
+layout_mode = 2
+theme = ExtResource("1_ll8bb")
+placeholder_text = "Enter command Here. Type !help for a list of commands"
+caret_blink = true
+
+[connection signal="text_submitted" from="Input/CommandEnter" to="Input/Panel/CommandDisplay" method="_on_command_enter_text_submitted"]

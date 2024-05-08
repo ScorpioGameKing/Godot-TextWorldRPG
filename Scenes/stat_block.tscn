@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4erpkfdxps6v"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_e38mk"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_btsj1"]
+number_color = Color(1, 1, 1, 1)
+symbol_color = Color(1, 1, 1, 1)
+keyword_colors = {
+"Class": Color(0, 0.470588, 1, 1),
+"DEF": Color(0.803922, 0.517647, 0, 1),
+"HP": Color(1, 0, 0, 1),
+"INT": Color(0.803922, 0.517647, 0, 1),
+"LCK": Color(0.803922, 0.517647, 0, 1),
+"MP": Color(0.19921, 0.428185, 1, 1),
+"Name": Color(0, 1, 0, 1),
+"SPD": Color(0.803922, 0.517647, 0, 1),
+"STR": Color(0.803922, 0.517647, 0, 1)
+}
+
+[node name="StatBlock" type="VBoxContainer"]
+custom_minimum_size = Vector2(192, 0)
+theme = ExtResource("1_e38mk")
+theme_override_constants/separation = 0
+
+[node name="LabelBG" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("1_e38mk")
+
+[node name="Label" type="Label" parent="LabelBG"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 184.0
+offset_bottom = 23.0
+theme = ExtResource("1_e38mk")
+text = "Player Stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsDisplay" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_e38mk")
+text = "Name: Player
+Class: Developer
+- - - - - - - - -
+HP: 100
+MP: 50
+- - - - - - - - -
+STR: 10
+DEF: 8
+SPD: 7
+INT: 5
+LCK: 5"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+syntax_highlighter = SubResource("CodeHighlighter_btsj1")

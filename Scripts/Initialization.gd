@@ -8,6 +8,12 @@ static var TILE_DICT = JSON.parse_string(_TILE_AS_TEXT)
 # World variables such as defualt buffer/map size, the worldMapGrid
 static var worldBufferDims = [71, 21]
 
+# Intial states of globals, will be be updated from save file on loads
+static var worldMonth = 5
+static var worldDay = 25
+static var worldHour = 10
+static var worldMin = 15
+
 
 # Extracts the Tile data for things like color and map generation (WIP)
 func findTileData(biome:String, _char:String):

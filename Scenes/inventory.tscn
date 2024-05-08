@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk8nb42srhng1"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_1e7tj"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_f1hh8"]
+number_color = Color(1, 1, 1, 1)
+symbol_color = Color(1, 1, 1, 1)
+keyword_colors = {
+"ARMS": Color(0.803922, 0.517647, 0, 1),
+"BAG": Color(0.19921, 0.428185, 1, 1),
+"CHEST": Color(0.803922, 0.517647, 0, 1),
+"EQUIPPED": Color(0, 1, 0, 1),
+"FEET": Color(0.803922, 0.517647, 0, 1),
+"HEAD": Color(0.803922, 0.517647, 0, 1),
+"LEGS": Color(0.803922, 0.517647, 0, 1),
+"LHAND": Color(0.803922, 0.517647, 0, 1),
+"RHAND": Color(0.803922, 0.517647, 0, 1)
+}
+
+[node name="Inventory" type="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+theme = ExtResource("1_1e7tj")
+theme_override_constants/separation = 0
+
+[node name="LabelBG" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("1_1e7tj")
+
+[node name="Label" type="Label" parent="LabelBG"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 248.0
+offset_bottom = 23.0
+theme = ExtResource("1_1e7tj")
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsDisplay" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_1e7tj")
+text = "EQUIPPED
+- - - - - - - - - - - -
+HEAD: Iron Helm
+CHEST: Studded Leather Armor
+ARMS: Steel Vambrace
+LHAND: Torch
+RHAND: Steel Arming Sword
+LEGS: Leather Pants
+FEET: Cloth Boots
+- - - - - - - - - - - -
+BAG
+- - - - - - - - - - - -
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT
+NAME : TYPE : AMOUNT"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+syntax_highlighter = SubResource("CodeHighlighter_f1hh8")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://brbeq07vdpt6n"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_ylbt3"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_piejb"]
+symbol_color = Color(1, 1, 1, 1)
+keyword_colors = {
+"hh": Color(0, 0.670588, 0, 1),
+"mm": Color(0, 0.470588, 1, 1)
+}
+
+[node name="EventLog" type="VBoxContainer"]
+custom_minimum_size = Vector2(384, 0)
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme = ExtResource("1_ylbt3")
+theme_override_constants/separation = 2
+
+[node name="LabelBG" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme = ExtResource("1_ylbt3")
+
+[node name="Label" type="Label" parent="LabelBG"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 376.0
+offset_bottom = 23.0
+theme = ExtResource("1_ylbt3")
+text = "Event Log
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EventDisplay" type="TextEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ylbt3")
+text = "hh:mm) Blank Event Text Log that runs on for a bit and wraps around the box
+
+hh:mm) Add a blank line between each event to make it look decent
+
+hh:mm) Just keep adding them over and over. Depending on needs might be smart to make events a JSON object so we can selectively write or recall events later on.
+
+hh:mm) Either way populate this with info all we want. Maybe by determin the time cut off point based on scrollbar size or by text string length. String Constructirs baby "
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+syntax_highlighter = SubResource("CodeHighlighter_piejb")
