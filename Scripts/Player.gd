@@ -9,7 +9,7 @@ var playerColor
 var pos = ["00","00"]
 
 # Player Stats
-var hp = 100
+var hp = 50
 var mp = 50
 var strength = 5
 var agility = 5
