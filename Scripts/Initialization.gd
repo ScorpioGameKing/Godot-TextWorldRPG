@@ -6,9 +6,9 @@ static var _TILE_AS_TEXT = FileAccess.get_file_as_string(_TILE_PATH)
 static var TILE_DICT = JSON.parse_string(_TILE_AS_TEXT)
 
 # References to map data, only should use getMap for access
-static var _MAP_PATH = "res://Data/map_data.json"
-static var _MAP_AS_TEXT = FileAccess.get_file_as_string(_MAP_PATH)
-static var MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
+var _MAP_PATH = "res://Data/map_data.json"
+var _MAP_AS_TEXT = FileAccess.get_file_as_string(_MAP_PATH)
+var MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
 
 # References to command data, only should use getTokens for access
 static var _CMD_PATH = "res://Data/command_data.json"

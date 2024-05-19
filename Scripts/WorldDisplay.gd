@@ -15,8 +15,6 @@ var bufferFrame = ""
 var mapDims = [71, 21]
 var mapPos = [0, 0]
 
-
-
 # Everything here runs when done with init
 func _ready():
 	WorldManager.plI.createNewPlayer("Player", "00ff00")
