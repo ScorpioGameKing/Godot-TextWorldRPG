@@ -1,0 +1,60 @@
+{
+	"tokens": [
+		{
+			"alias": [
+				"move"
+			],
+			"data": [
+				{
+					"type": "CMD",
+					"args": 1,
+					"args_types": "DIR"
+				}
+			]
+		},
+		{
+			"alias": [
+				"north"
+			],
+			"data": [
+				{
+					"type": "DIR",
+					"value": -1
+				}
+			]
+		},
+		{
+			"alias": [
+				"east"
+			],
+			"data": [
+				{
+					"type": "DIR",
+					"value": 1
+				}
+			]
+		},
+		{
+			"alias": [
+				"south"
+			],
+			"data": [
+				{
+					"type": "DIR",
+					"value": 1
+				}
+			]
+		},
+		{
+			"alias": [
+				"west"
+			],
+			"data": [
+				{
+					"type": "DIR",
+					"value": -1
+				}
+			]
+		}
+	]
+}

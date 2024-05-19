@@ -1,0 +1,181 @@
+{
+	"ts1": [
+		{
+			"entities": [
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "B",
+							"tile_name": "Bandit",
+							"tile_color": "ff0000",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": true,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "P",
+							"tile_name": "Player",
+							"tile_color": "00ff00",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": true,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				}
+			],
+			"terrain": [
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "g",
+							"tile_name": "Grass",
+							"tile_color": "1e6649",
+							"tile_flags": [
+								{
+									"walkable": true,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "p",
+							"tile_name": "Grass",
+							"tile_color": "666666",
+							"tile_flags": [
+								{
+									"walkable": true,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "f",
+							"tile_name": "Forest",
+							"tile_color": "2A4F41",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "d",
+							"tile_name": "Dirt",
+							"tile_color": "683627",
+							"tile_flags": [
+								{
+									"walkable": true,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				}
+				,
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "s",
+							"tile_name": "Sand",
+							"tile_color": "ffe8a3",
+							"tile_flags": [
+								{
+									"walkable": true,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "T",
+							"tile_name": "Town",
+							"tile_color": "c3cb71",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": true,
+									"is_warp_tile": true,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "~",
+							"tile_name": "Water",
+							"tile_color": "1b85b8",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "x",
+							"tile_name": "BG",
+							"tile_color": "553565",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

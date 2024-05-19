@@ -18,6 +18,8 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 InitData="*res://Scripts/Initialization.gd"
+EventManager="*res://Scripts/EventManager.gd"
+WorldManager="*res://Scripts/WorldManager.gd"
 
 [display]
 
