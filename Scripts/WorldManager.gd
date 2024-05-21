@@ -10,3 +10,6 @@ var entitiesLive = []
 
 func _ready():
 	add_child(plI)
+
+func generateWorldMap():
+	pass

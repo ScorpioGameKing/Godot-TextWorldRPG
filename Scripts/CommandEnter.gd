@@ -16,7 +16,7 @@ func updateConsole():
 		self.text += _coloredText + "\n"
 
 # When the Enter Key is pressed send command to event manager and print results
-func _on_command_enter_text_submitted(new_text):
+func _on_command_enter_text_submitted(new_text:String):
 	# Eventually get time from WorldManager
 	var _curTime = [InitData.worldHour, InitData.worldMin]
 	# Parse out words and tokenize the command
@@ -50,7 +50,7 @@ func _on_command_enter_text_submitted(new_text):
 	WorldManager.frameUpdate = true
 	
 # All displayed outputs include world time as hh:mm), this colors it
-func colorTime(timeText:String):
+func colorTime(timeText:String) -> String:
 	var _colorText = ""
 	var _token = timeText.substr(0, 6)
 	var _color = "E77828"

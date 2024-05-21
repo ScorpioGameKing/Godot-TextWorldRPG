@@ -24,7 +24,7 @@ func createNewPlayer(newName:String, newColor:String):
 	playerColor = newColor
 
 # Get and set position
-func getPosition():
+func getPosition() -> Array:
 	return [playerSymbol, pos]
 
 func setPosition(newPos:Array):
