@@ -1,14 +1,17 @@
 extends RichTextLabel
 
+# Create an array to hold commands
 @onready var commandsRecived = []
-@onready var testString = "12:34) Move North"
 
+# Clear on load just in case, may have to change
 func _ready():
 	clearConsole()
 
+# Clears the console
 func clearConsole():
 	self.text = ""
 
+# Clear then update the console with the command log
 func updateConsole():
 	clearConsole()
 	for _cmd in commandsRecived:
@@ -17,7 +20,7 @@ func updateConsole():
 
 # When the Enter Key is pressed send command to event manager and print results
 func _on_command_enter_text_submitted(new_text:String):
-	# Eventually get time from WorldManager
+	# TODO: Eventually get time from WorldManager
 	var _curTime = [InitData.worldHour, InitData.worldMin]
 	# Parse out words and tokenize the command
 	InitData.RX.compile(InitData.RXExpressions[4])

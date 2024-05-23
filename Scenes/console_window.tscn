@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4rq3m7jh0ym6" path="res://Scenes/input.tscn" id="6_t7sws"]
 
 [node name="ConsoleWindow" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

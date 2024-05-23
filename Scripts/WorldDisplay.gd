@@ -1,21 +1,22 @@
 extends RichTextLabel
 
-# Frames are the actively unpacked and edited map String, eventually this will be
-# pulled from the InitData
+# Frames are the actively unpacked and edited map String
 var savedFrame = InitData.getMap([49, 49], "terrain")
 var loadedFrame
 var testSaveFrame
+# HACK: Grab a test tileset for default render
 @onready var mapTS = InitData.getTileset("ts1")
 
 # Blank Buffer Frame, Starts blank because could want more complex BG manips/draws
 var bufferFrame = ""
 
-# Current map's position x,y on the buffer frame and it's dimensions, should never
-# exceed the buffer's length, not handled but eventually will be stripped as needed
+# TODO: Trim Map if offscreen
+# Current map's position x,y on the buffer frame and it's dimensions
 var mapDims = [71, 21]
 var mapPos = [0, 0]
 
 # Everything here runs when done with init
+# HACK: Loading everything through here for testing, Move to world manager
 func _ready():
 	WorldManager.plI.createNewPlayer("Player", "00ff00")
 	WorldManager.plI.setPosition(["25","09"])
@@ -23,6 +24,7 @@ func _ready():
 	bufferFrame = createBuffer()
 	loadedFrame = loadCharString(savedFrame)
 
+# Check if the WorldManager has called for an update
 func _process(_delta):
 	if WorldManager.frameUpdate:
 		updateFrame()
@@ -79,8 +81,8 @@ func colorMap(map:String, tileSet, layer:int):
 				else:
 					_colorRow += "[color=" + _entData["tile_color"] + "]" + _symbol + "[/color]"
 			else:
-				# Add the relavant BBCodes, currently just color, eventually BG
-				# Outlines, animations will be situationally added
+				# Add the relavant BBCodes
+				# TODO: Add support for BG, Higlight, Outline, Etc
 				_colorRow += "[color=" + _tileData["tile_color"] + "]" + _symbol + "[/color]"
 		if _count == _rows.size():
 			_colorString += _colorRow

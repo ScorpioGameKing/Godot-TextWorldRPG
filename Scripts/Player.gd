@@ -1,5 +1,7 @@
 extends Node
 
+# TODO: Bring over stats from spreadsheet, refine formulas
+
 # Player Name , Symbol, Color
 var playerName
 var playerSymbol

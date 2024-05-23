@@ -59,7 +59,7 @@
 					"tile_data": [
 						{
 							"tile_symbol": "p",
-							"tile_name": "Grass",
+							"tile_name": "Path",
 							"tile_color": "666666",
 							"tile_flags": [
 								{
@@ -77,7 +77,7 @@
 						{
 							"tile_symbol": "f",
 							"tile_name": "Forest",
-							"tile_color": "2A4F41",
+							"tile_color": "6a8758",
 							"tile_flags": [
 								{
 									"walkable": false,
@@ -147,6 +147,40 @@
 							"tile_symbol": "~",
 							"tile_name": "Water",
 							"tile_color": "1b85b8",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "m",
+							"tile_name": "Mountain",
+							"tile_color": "5c8084",
+							"tile_flags": [
+								{
+									"walkable": false,
+									"can_interact": false,
+									"is_warp_tile": false,
+									"harmful": false
+								}
+							]
+						}
+					]
+				},
+				{
+					"tile_data": [
+						{
+							"tile_symbol": "w",
+							"tile_name": "Snow",
+							"tile_color": "ffffff",
 							"tile_flags": [
 								{
 									"walkable": false,

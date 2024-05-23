@@ -6,6 +6,7 @@ static var _TILE_AS_TEXT = FileAccess.get_file_as_string(_TILE_PATH)
 static var TILE_DICT = JSON.parse_string(_TILE_AS_TEXT)
 
 # References to map data, only should use getMap for access
+# TODO: Replace with grabbing a saved world gen map set
 var _MAP_PATH = "res://Data/map_data.json"
 var _MAP_AS_TEXT = FileAccess.get_file_as_string(_MAP_PATH)
 var MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
@@ -19,6 +20,7 @@ static var CMD_DICT = JSON.parse_string(_CMD_AS_TEXT)
 static var worldBufferDims = [71, 21]
 
 # Intial states of globals, will be be updated from save file on loads
+# TODO: Move to World Manager, implement world clock
 var worldMonth = 5
 var worldDay = 25
 var worldHour = 10
@@ -39,9 +41,9 @@ static var RXExpressions = [
 ]
 
 # Debug Functions here, eventually this will load data from saves
+# TODO: Will load the given saved map and call appropriate load functions
 func _ready():
 	mapTS = getTileset("ts1")
-	#print(mapTS, "terrain", "f")
 
 func getTileset(tileset:String):
 	return TILE_DICT[tileset][0]
@@ -51,8 +53,14 @@ func getTileData(tileset:Dictionary, type:String, symbol:String):
 		if _tile["tile_data"][0]["tile_symbol"] == symbol:
 			return _tile["tile_data"][0]
 	return false
+	
+func colorToTile(tileset:Dictionary, type:String, color:String):
+	for _tile in tileset[type]:
+		if _tile["tile_data"][0]["tile_color"] == color:
+			return _tile["tile_data"][0]["tile_symbol"]
+	return false
 
-# Hacky but generally useful, returns key + 1: value as long as you have a count
+# HACK: generally useful, returns key + 1: value as long as you have a count try and avoid
 func getNextDictValue(index:int, dict:Dictionary):
 	return dict.values()[index + 1]
 	
