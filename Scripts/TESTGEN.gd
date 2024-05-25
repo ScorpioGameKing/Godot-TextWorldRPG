@@ -1,27 +1,27 @@
 extends Node2D
 
 # HACK: Test Gen Width and Height
-var screenWidth = 108
-var screenHeight = 39
+var screenWidth:int = 108
+var screenHeight:int = 39
 
 # Default world width and height
-@export var worldWidth = 100
-@export var worldHeight = 100
+@export var worldWidth:int = 100
+@export var worldHeight:int = 100
 
 # Size of the world view display
-var mapWidth = 71
-var mapHeight = 21
+var mapWidth:int = 71
+var mapHeight:int = 21
 
 # Quick ref to the true width height and len
-var realWidth = worldWidth * mapWidth
-var realHeight = worldHeight * mapHeight
-var worldStringLength = realWidth * realHeight
+var realWidth:int = worldWidth * mapWidth
+var realHeight:int = worldHeight * mapHeight
+var worldStringLength:int = realWidth * realHeight
 
 # TODO: Intial Noise map, reuse as a altitude map and add temp/moisture
-var mois = FastNoiseLite.new()
+var mois:FastNoiseLite = FastNoiseLite.new()
 
 # Create the gradient to  clamp values, posibbly have to rework manually
-var colorGrade = Gradient.new()
+var colorGrade:Gradient = Gradient.new()
 
 # Ref to the texture to display raw noise and text conversion
 @onready var worldTex = $"testTexture"
@@ -30,9 +30,12 @@ var colorGrade = Gradient.new()
 # TODO: Load tileset for gen, eventually determined by biome 
 @onready var mapTS = InitData.getTileset("ts1")
 
+@onready var worldMaps:Dictionary = {}
+
 # Test building noise and calc the render time
 func _ready():
-	var stime = Time.get_datetime_dict_from_system()
+	var _time:Dictionary = Time.get_datetime_dict_from_system()
+	print(_time)
 	
 	# Clear anything previous just in case
 	worldStr.text = ""
@@ -63,7 +66,7 @@ func _ready():
 	colorGrade.add_point(1.00, "ffffff")
 	
 	# Generate the texture at the desired size then apply gradient
-	var moisTex = NoiseTexture2D.new()
+	var moisTex:NoiseTexture2D = NoiseTexture2D.new()
 	moisTex.normalize = true
 	moisTex.width = realWidth
 	moisTex.height = realHeight
@@ -71,18 +74,34 @@ func _ready():
 	moisTex.color_ramp = colorGrade
 	
 	# wait for changes to be complete, it's threaded
+	print("Waiting for Texture")
 	await moisTex.changed
 	
 	# Pull the img and index a chunk from 0,0 to test gen dimensions
-	var moisImg = moisTex.get_image()
+	print("Pulling Image")
+	var moisImg:Image = moisTex.get_image()
+	
+	# Either render Raw or text
+	#textRender(moisImg)
+	worldTex.texture = ImageTexture.create_from_image(moisImg)
+	
+	noiseToMap(mois, 0, 0)
+	print(worldMaps)
+	
+	# Capture final time and print the times
+	_time = Time.get_datetime_dict_from_system()
+	print("Done")
+	print(_time)
+
+func textRender(image):
 	for _y in range(screenHeight - 1):
 		for _x in range(screenWidth - 1):
 			var _c
 			# HACK: Unsure why but 0,0 fails, hacky grab next tile
 			if _x == 0 and _y == 0: 
-				_c = moisImg.get_pixel(_x + 1,_y).to_html(false)
+				_c = image.get_pixel(_x + 1,_y).to_html(false)
 			else:
-				_c = moisImg.get_pixel(_x,_y).to_html(false)
+				_c = image.get_pixel(_x,_y).to_html(false)
 			# Check the color value and add either tile or buffer depending
 			var _sym = InitData.colorToTile(mapTS, "terrain", _c)
 			if typeof(_sym) == TYPE_STRING:
@@ -90,13 +109,42 @@ func _ready():
 			else:
 				worldStr.text += "X"
 		# Wrap the line
+		print("Built Row")
 		worldStr.text += "\n"
-	
-	# Render the raw noise
-	#worldTex.texture = ImageTexture.create_from_image(moisImg)
-	
-	# Capture final time and print the times
-	var etime = Time.get_datetime_dict_from_system()
-	print(stime)
-	print(etime)
 
+# TODO: Be Better
+func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
+	var _mapString:String
+	for _y in range(mapY * mapHeight, (mapY * mapHeight) + mapHeight):
+		var _row:String
+		for _x in range(mapX * mapWidth, (mapX * mapWidth) + mapWidth):
+			var _val:float = clampf(abs((noise.get_noise_2d(_x, _y) * 2)), 0.0, 1.0)
+			if _val >= 0.90:
+				_row += "w"
+			elif _val >= 0.75:
+				_row += "m"
+			elif _val >= 0.55:
+				_row += "f"
+			elif _val >= 0.25:
+				_row += "g"
+			elif _val >= 0.15:
+				_row += "s"
+			else:
+				_row += "~"
+		_mapString += _row
+	worldMaps["{0},{1}".format([mapX, mapY])] = saveToCharString(_mapString)
+
+# Takes the active map and packs it down 
+func saveToCharString(_unpackedString:String) -> String:
+	print("Saved Map String")
+	var _charString = ""
+	InitData.RX.compile(InitData.RXExpressions[1])
+	var _rows = InitData.RX.search_all(_unpackedString)
+	InitData.RX.compile(InitData.RXExpressions[2])
+	for _row in _rows:
+		for _strip in InitData.RX.search_all(_row.get_string()):
+			if _strip.get_string().length() < 10:
+				_charString += _strip.get_string()[0] + "0" + str(_strip.get_string().length())
+			else:
+				_charString += _strip.get_string()[0] + str(_strip.get_string().length())
+	return(_charString)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://yclb8v70wnox"]
+
+[ext_resource type="Script" path="res://Scripts/TESTGEN.gd" id="1_1fob5"]
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="2_tm6ow"]
+
+[node name="TestGen" type="Node2D"]
+script = ExtResource("1_1fob5")
+metadata/_edit_lock_ = true
+
+[node name="testTexture" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, 6.10352e-05)
+scale = Vector2(0.9, 0.50625)
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_tm6ow")
+bbcode_enabled = true
+text = "107
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38"
