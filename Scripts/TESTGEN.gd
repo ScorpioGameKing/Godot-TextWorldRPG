@@ -17,6 +17,12 @@ var realWidth:int = worldWidth * mapWidth
 var realHeight:int = worldHeight * mapHeight
 var worldStringLength:int = realWidth * realHeight
 
+var worldMapsPath = "user://Data/Saves/"
+var WorldMapsSaveID = "debug_world.json"
+
+# References to map data, only should use getMap for access
+var MAP_DICT
+
 # TODO: Intial Noise map, reuse as a altitude map and add temp/moisture
 var mois:FastNoiseLite = FastNoiseLite.new()
 
@@ -85,15 +91,38 @@ func _ready():
 	#textRender(moisImg)
 	worldTex.texture = ImageTexture.create_from_image(moisImg)
 	
-	for _y in range(worldHeight - 1):
-		for _x in range(worldWidth - 1):
+	for _y in range(worldHeight):
+		for _x in range(worldWidth):
 			noiseToMap(mois, _x, _y)
 	print(worldMaps.size())
+	
+	
+	var worldMapsJSONString = JSON.stringify(worldMaps, "\t")
+	#print(worldMapsJSONString)
+	saveWorldMap(worldMapsPath, WorldMapsSaveID, worldMapsJSONString)
+	loadWorldMap(worldMapsPath, WorldMapsSaveID)
+	print(MAP_DICT)
 	
 	# Capture final time and print the times
 	_time = Time.get_datetime_dict_from_system()
 	print("Done")
 	print(_time)
+	
+func saveWorldMap(path:String, id:String, JSONString:String):
+	if FileAccess.file_exists(path + id):
+		var saveFile = FileAccess.open(path + id, FileAccess.WRITE)
+		saveFile.store_string(JSONString)
+	else: 
+		DirAccess.make_dir_recursive_absolute(path)
+		var saveFile = FileAccess.open(path + id, FileAccess.WRITE)
+		saveFile.store_string(JSONString)
+
+func loadWorldMap(path:String, id:String):
+	if FileAccess.file_exists(path + id):
+		var _MAP_AS_TEXT = FileAccess.get_file_as_string(path + id)
+		MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
+	else: 
+		print("No File")
 
 func textRender(image):
 	for _y in range(screenHeight - 1):
@@ -134,11 +163,11 @@ func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
 			else:
 				_row += "~"
 		_mapString += _row
-	worldMaps["{0},{1}".format([mapX, mapY])] = saveToCharString(_mapString)
+	worldMaps["{0},{1}".format([mapX, mapY])] = [{"terrain": saveToCharString(_mapString)}]
 
 # Takes the active map and packs it down 
 func saveToCharString(_unpackedString:String) -> String:
-	print("Saved Map String")
+	#print("Saved Map String")
 	var _charString = ""
 	InitData.RX.compile(InitData.RXExpressions[1])
 	var _rows = InitData.RX.search_all(_unpackedString)
