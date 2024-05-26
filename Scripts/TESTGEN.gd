@@ -85,8 +85,10 @@ func _ready():
 	#textRender(moisImg)
 	worldTex.texture = ImageTexture.create_from_image(moisImg)
 	
-	noiseToMap(mois, 0, 0)
-	print(worldMaps)
+	for _y in range(worldHeight - 1):
+		for _x in range(worldWidth - 1):
+			noiseToMap(mois, _x, _y)
+	print(worldMaps.size())
 	
 	# Capture final time and print the times
 	_time = Time.get_datetime_dict_from_system()
@@ -114,9 +116,9 @@ func textRender(image):
 
 # TODO: Be Better
 func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
-	var _mapString:String
+	var _mapString:String = ""
 	for _y in range(mapY * mapHeight, (mapY * mapHeight) + mapHeight):
-		var _row:String
+		var _row:String = ""
 		for _x in range(mapX * mapWidth, (mapX * mapWidth) + mapWidth):
 			var _val:float = clampf(abs((noise.get_noise_2d(_x, _y) * 2)), 0.0, 1.0)
 			if _val >= 0.90:
