@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://vmedna6lx68y"]
+[gd_scene load_steps=7 format=3 uid="uid://vmedna6lx68y"]
 
 [ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_80m2x"]
 [ext_resource type="PackedScene" uid="uid://cyyeyqt0nov21" path="res://Scenes/text_world_display.tscn" id="3_b88jj"]
 [ext_resource type="PackedScene" uid="uid://b77dv3pd3sjrb" path="res://Scenes/side_menu.tscn" id="4_np2sh"]
+[ext_resource type="AudioStream" uid="uid://blxa60moqohs6" path="res://Sounds/Music/battle_one.wav" id="5_hamki"]
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="6_n1ksb"]
 [ext_resource type="PackedScene" uid="uid://4rq3m7jh0ym6" path="res://Scenes/input.tscn" id="6_t7sws"]
 
 [node name="ConsoleWindow" type="Node2D"]
@@ -50,3 +52,10 @@ theme_override_constants/separation = 2
 
 [node name="SideMenu" parent="Control/MarginContainer/Columns/Right" instance=ExtResource("4_np2sh")]
 layout_mode = 2
+
+[node name="AudioManager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hamki")
+volume_db = -19.259
+autoplay = true
+bus = &"BGM"
+script = ExtResource("6_n1ksb")

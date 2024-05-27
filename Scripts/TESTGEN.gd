@@ -23,9 +23,6 @@ var WorldMapsSaveID = "debug_world.json"
 # References to map data, only should use getMap for access
 var MAP_DICT
 
-# TODO: Intial Noise map, reuse as a altitude map and add temp/moisture
-var mois:FastNoiseLite = FastNoiseLite.new()
-
 # Create the gradient to  clamp values, posibbly have to rework manually
 var colorGrade:Gradient = Gradient.new()
 
@@ -46,6 +43,9 @@ func _ready():
 	# Clear anything previous just in case
 	worldStr.text = ""
 	
+	var mois:FastNoiseLite = WorldManager.altitude
+	var seaLevel:FastNoiseLite = FastNoiseLite.new()
+	
 	# altitude noise settings
 	mois.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	mois.seed = 1
@@ -55,28 +55,40 @@ func _ready():
 	mois.fractal_lacunarity = 3.165
 	mois.fractal_gain = 0.345
 	
+	# Sea Level noise settings
+	seaLevel.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	seaLevel.seed = 1
+	seaLevel.frequency = 0.00155
+	seaLevel.fractal_type = FastNoiseLite.FRACTAL_RIDGED
+	seaLevel.fractal_octaves = 3
+	seaLevel.fractal_lacunarity = 2.025
+	seaLevel.fractal_gain = 0.715
+	
+	var blendNoise:FastNoiseLite = FastNoiseLite.new()
+	
 	# Hard step, constant value interplation gradient to set pixel colors to tile colors
 	colorGrade.interpolation_color_space = Gradient.GRADIENT_COLOR_SPACE_OKLAB
 	colorGrade.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_CONSTANT
-	colorGrade.add_point(0.00, "1b85b8") # Water
-	colorGrade.add_point(0.39, "1b85b8")
-	colorGrade.add_point(0.39, "ffe8a3") # Sand
-	colorGrade.add_point(0.43, "ffe8a3")
-	colorGrade.add_point(0.43, "1e6649") # Grass
-	colorGrade.add_point(0.65, "1e6649")
-	colorGrade.add_point(0.65, "6a8758") # Forest
-	colorGrade.add_point(0.75, "6a8758")
-	colorGrade.add_point(0.75, "5c8084") # Mountain
-	colorGrade.add_point(0.90, "5c8084")
-	colorGrade.add_point(0.90, "ffffff") # Snow
-	colorGrade.add_point(1.00, "ffffff")
+	#colorGrade.add_point(0.00, "1b85b8") # Water
+	#colorGrade.add_point(0.39, "1b85b8")
+	#colorGrade.add_point(0.39, "ffe8a3") # Sand
+	#colorGrade.add_point(0.43, "ffe8a3")
+	#colorGrade.add_point(0.43, "1e6649") # Grass
+	#colorGrade.add_point(0.65, "1e6649")
+	#colorGrade.add_point(0.65, "6a8758") # Forest
+	#colorGrade.add_point(0.75, "6a8758")
+	#colorGrade.add_point(0.75, "5c8084") # Mountain
+	#colorGrade.add_point(0.90, "5c8084")
+	#colorGrade.add_point(0.90, "ffffff") # Snow
+	#colorGrade.add_point(1.00, "ffffff")
+	setGradient(colorGrade, mois)
 	
 	# Generate the texture at the desired size then apply gradient
 	var moisTex:NoiseTexture2D = NoiseTexture2D.new()
 	moisTex.normalize = true
 	moisTex.width = realWidth
 	moisTex.height = realHeight
-	moisTex.noise = mois
+	moisTex.noise = WorldManager.altitude
 	moisTex.color_ramp = colorGrade
 	
 	# wait for changes to be complete, it's threaded
@@ -101,13 +113,30 @@ func _ready():
 	#print(worldMapsJSONString)
 	saveWorldMap(worldMapsPath, WorldMapsSaveID, worldMapsJSONString)
 	loadWorldMap(worldMapsPath, WorldMapsSaveID)
-	print(MAP_DICT)
+	#print(MAP_DICT)
 	
 	# Capture final time and print the times
 	_time = Time.get_datetime_dict_from_system()
 	print("Done")
 	print(_time)
 	
+func setGradient(grade:Gradient, noise:FastNoiseLite):
+	for _y in range(realHeight):
+		for _x in range(realWidth):
+			var _val:float = clampf(noise.get_noise_2d(_x, _y), 0.0, 1.0)
+			if _val >= 0.90:
+				grade.add_point(_val, "ffffff")
+			elif _val >= 0.75:
+				grade.add_point(_val, "5c8084")
+			elif _val >= 0.55:
+				grade.add_point(_val, "6a8758")
+			elif _val >= 0.25:
+				grade.add_point(_val, "1e6649")
+			elif _val >= 0.15:
+				grade.add_point(_val, "ffe8a3")
+			else:
+				grade.add_point(_val, "1b85b8")
+
 func saveWorldMap(path:String, id:String, JSONString:String):
 	if FileAccess.file_exists(path + id):
 		var saveFile = FileAccess.open(path + id, FileAccess.WRITE)
@@ -130,7 +159,7 @@ func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
 	for _y in range(mapY * mapHeight, (mapY * mapHeight) + mapHeight):
 		var _row:String = ""
 		for _x in range(mapX * mapWidth, (mapX * mapWidth) + mapWidth):
-			var _val:float = clampf(abs((noise.get_noise_2d(_x, _y) * 2)), 0.0, 1.0)
+			var _val:float = clampf(noise.get_noise_2d(_x, _y), 0.0, 1.0)
 			if _val >= 0.90:
 				_row += "w"
 			elif _val >= 0.75:

@@ -24,6 +24,7 @@ var entitiesLive = []
 
 # HACK: Place a player for testing functions
 func _ready():
+	deleteWorldMap(worldMapsPath, worldMapsSaveID)
 	loadWorldMap(worldMapsPath, worldMapsSaveID)
 	plI.createNewPlayer("Player", "00ff00")
 	plI.setPosition([29,9])
@@ -44,8 +45,8 @@ func createNewWorld(worldDims:Array, path:String, id:String):
 	altitude.frequency = 0.0018
 	altitude.fractal_type = FastNoiseLite.FRACTAL_PING_PONG
 	altitude.fractal_octaves = 4
-	altitude.fractal_lacunarity = 3.165
-	altitude.fractal_gain = 0.345
+	altitude.fractal_lacunarity = 3.160
+	altitude.fractal_gain = 0.340
 	
 	# Iterate map chunks
 	for _y in range(worldDims[1]):
@@ -70,16 +71,16 @@ func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
 		var _row:String = ""
 		for _x in range(mapX * screenDimensions[0], (mapX * screenDimensions[0]) + screenDimensions[0]):
 			# Normalize noise from 0 to 1
-			var _val:float = clampf(abs((noise.get_noise_2d(_x, _y) * 2)), 0.0, 1.0)
-			if _val >= 0.90:
+			var _val:float = clampf(abs((noise.get_noise_2d(_x, _y)) * 1), 0.0000, 1.0000)
+			if _val >= 0.8000:
 				_row += "w"
-			elif _val >= 0.75:
+			elif _val >= 0.5500:
 				_row += "m"
-			elif _val >= 0.55:
+			elif _val >= 0.4000:
 				_row += "f"
-			elif _val >= 0.25:
+			elif _val >= 0.2050:
 				_row += "g"
-			elif _val >= 0.15:
+			elif _val >= 0.1050:
 				_row += "s"
 			else:
 				_row += "~"
@@ -114,6 +115,17 @@ func saveWorldMap(path:String, id:String, JSONString:String):
 		DirAccess.make_dir_recursive_absolute(path)
 		var saveFile = FileAccess.open(path + id, FileAccess.WRITE)
 		saveFile.store_string(JSONString)
+		
+
+# Save map to file
+func deleteWorldMap(path:String, id:String):
+	print("Deleting World")
+	# If the world and dir exist we overwrite
+	if FileAccess.file_exists(path + id):
+		DirAccess.remove_absolute(path + id)
+	# if not we make the dir and save a new file
+	else: 
+		print("No Map To Clear")
 
 # Load a world from file
 func loadWorldMap(path:String, id:String):
@@ -143,9 +155,9 @@ func placeEntities(map:String, entities:Array = []):
 			# out of terrain if stuck after travel
 			var tiles = [
 				func(): if _i - screenDimensions[0] < 0: return "g" else: return map[_i - screenDimensions[0]],
-				func(): if _i + screenDimensions[0] > len(map): return "g" else: return map[_i + screenDimensions[0]],
+				func(): if _i + screenDimensions[0] > len(map) - 1: return "g" else: return map[_i + screenDimensions[0]],
 				func(): if _i - 1 < 0: return "g" else: return map[_i - 1],
-				func(): if _i + 1 > len(map): return "g" else: return map[_i + 1]
+				func(): if _i + 1 > len(map) - 1: return "g" else: return map[_i + 1]
 			]
 			var collisions = []
 			# Index the tiles and call the lambda
@@ -179,7 +191,8 @@ func getMap(coords:Array, layer_key:String) -> String:
 func moveV(val:int):
 	print("Vertical Move")
 	print("{0}".format([int(activeMap[1]) + val]))
-	activeMap[1] = activeMap[1] + val
+	if activeMap[1] + val > 0 and activeMap[1] + val < worldDimensions[1]:
+		activeMap[1] = activeMap[1] + val
 	print(activeMap)
 	newMap = true
 
@@ -187,6 +200,7 @@ func moveV(val:int):
 func moveH(val:int):
 	print("Horizontal Move")
 	print("{0}".format([int(activeMap[0]) + val]))
-	activeMap[0] = activeMap[0] + val
+	if activeMap[0] + val > 0 and activeMap[0] + val < worldDimensions[0]:
+		activeMap[0] = activeMap[0] + val
 	print(activeMap)
 	newMap = true
