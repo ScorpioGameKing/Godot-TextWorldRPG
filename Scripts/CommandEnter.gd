@@ -1,11 +1,13 @@
 extends RichTextLabel
 
-# Create an array to hold commands
-@onready var commandsRecived = []
-
 # Clear on load just in case, may have to change
 func _ready():
 	clearConsole()
+
+# Tells the Console to update itself
+func _process(_delta):
+	if EventManager.updateConsoleLog:
+		updateConsole()
 
 # Clears the console
 func clearConsole():
@@ -14,19 +16,19 @@ func clearConsole():
 # Clear then update the console with the command log
 func updateConsole():
 	clearConsole()
-	for _cmd in commandsRecived:
+	for _cmd in EventManager.commandsRecived:
 		var _coloredText = colorTime(_cmd[0])
 		self.text += _coloredText + "\n"
+	EventManager.updateConsoleLog = false
 
 # When the Enter Key is pressed send command to event manager and print results
 func _on_command_enter_text_submitted(new_text:String):
 	# TODO: Eventually get time from WorldManager
-	var _curTime = [InitData.worldHour, InitData.worldMin]
+	var _curTime = [WorldManager.worldDate["hour"], WorldManager.worldDate["minute"]]
 	# Parse out words and tokenize the command
 	InitData.RX.compile(InitData.RXExpressions[4])
 	var _textTokens = InitData.RX.search_all(new_text)
 	var _command = []
-	var _errorQueue = []
 	for _textToken in _textTokens:
 		var _typeToken = InitData.getToken(_textToken.get_string())
 		if typeof(_typeToken) == TYPE_ARRAY:
@@ -38,19 +40,16 @@ func _on_command_enter_text_submitted(new_text:String):
 	var _validCommand = EventManager.parseCommand(_command)
 	# Error Check
 	if typeof(_validCommand) == TYPE_STRING:
-		_errorQueue.append(_validCommand)
+		EventManager.errorQueue.append(_validCommand)
 	else:
-		# Resize command history to fit latest command
-		if commandsRecived.size() == 100:
-			commandsRecived.pop_front()
-		commandsRecived.append([str(_curTime[0]) + ":" + str(_curTime[1])+ ") " + new_text])
+		EventManager.trimLog()
+		EventManager.commandsRecived.append([str(_curTime[0]) + ":" + str(_curTime[1])+ ") " + new_text])
 	# Append errors to the history
-	for _i in range(_errorQueue.size()):
-		print(_errorQueue[_i])
-		commandsRecived.append([str(_curTime[0]) + ":" + str(_curTime[1])+ ") " + _errorQueue[_i]])
+	for _i in range(EventManager.errorQueue.size()):
+		#print(EventManager.errorQueue[_i])
+		EventManager.commandsRecived.append([str(_curTime[0]) + ":" + str(_curTime[1])+ ") " + EventManager.errorQueue[_i]])
 	# Display results
-	updateConsole()
-	WorldManager.frameUpdate = true
+	EventManager.updateConsoleLog = true
 	
 # All displayed outputs include world time as hh:mm), this colors it
 func colorTime(timeText:String) -> String:

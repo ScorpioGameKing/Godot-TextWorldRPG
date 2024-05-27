@@ -1,9 +1,10 @@
 extends RichTextLabel
 
 # Frames are the actively unpacked and edited map String
-var savedFrame = InitData.getMap([49, 49], "terrain")
+var savedFrame
 var loadedFrame
 var testSaveFrame
+
 # HACK: Grab a test tileset for default render
 @onready var mapTS = InitData.getTileset("ts1")
 
@@ -16,12 +17,9 @@ var mapDims = [71, 21]
 var mapPos = [0, 0]
 
 # Everything here runs when done with init
-# HACK: Loading everything through here for testing, Move to world manager
 func _ready():
-	WorldManager.plI.createNewPlayer("Player", "00ff00")
-	WorldManager.plI.setPosition(["25","09"])
-	WorldManager.entitiesLive.append(WorldManager.plI.getPosition())
 	bufferFrame = createBuffer()
+	savedFrame = WorldManager.getMap(WorldManager.activeMap, "terrain")
 	loadedFrame = loadCharString(savedFrame)
 
 # Check if the WorldManager has called for an update
@@ -33,7 +31,14 @@ func _process(_delta):
 # Updates the current map display to match any changes, handles BBCode insertion if 
 # the Tile is in the current biome set
 func updateFrame(_buffer:String = bufferFrame, _mapFrame:String = loadedFrame, _mapDims:Array = mapDims, _mapPos:Array = mapPos):
-	print("Upadated Frame")
+	print("Updated Frame")
+	# If we move to a new map update the saved frame
+	if WorldManager.newMap:
+		savedFrame = WorldManager.getMap(WorldManager.activeMap, "terrain")
+		loadedFrame = loadCharString(savedFrame)
+		_mapFrame = loadedFrame
+		WorldManager.newMap = false
+	
 	var _renderFrame = ""
 	var _bufferIndex = 0 # Tracks the current index of buffer's y row
 	var _replaceCount = 0 # Tracks the current index of map's y row
@@ -57,7 +62,7 @@ func updateFrame(_buffer:String = bufferFrame, _mapFrame:String = loadedFrame, _
 			_renderFrame += _row
 		_bufferIndex += 1
 	# Place Entities
-	_renderFrame = placeEntities(_renderFrame, WorldManager.entitiesLive)
+	_renderFrame = WorldManager.placeEntities(_renderFrame, WorldManager.entitiesLive)
 	# Color the map
 	_renderFrame = colorMap(_renderFrame, mapTS, 0)
 	# Output
@@ -90,13 +95,6 @@ func colorMap(map:String, tileSet, layer:int):
 			_colorString += _colorRow + "\n"
 		_count += 1
 	return _colorString
-	
-# Place Entities on a map string
-func placeEntities(map:String, entities:Array = []):
-	for entPos in entities:
-		var _i = int(entPos[1][0]) + (int(entPos[1][1]) * mapDims[0])
-		map[_i] = entPos[0]
-	return map
 
 # Loads a packed character string
 func loadCharString(_charString:String) -> String:
@@ -109,21 +107,6 @@ func loadCharString(_charString:String) -> String:
 		for _i in range(int(_count)):
 			_unpackedString += _char
 	return(_unpackedString)
-	
-# Takes the active map and packs it down 
-func saveToCharString(_unpackedString:String) -> String:
-	print("Saved Map String")
-	var _charString = ""
-	InitData.RX.compile(InitData.RXExpressions[1])
-	var _rows = InitData.RX.search_all(_unpackedString)
-	InitData.RX.compile(InitData.RXExpressions[2])
-	for _row in _rows:
-		for _strip in InitData.RX.search_all(_row.get_string()):
-			if _strip.get_string().length() < 10:
-				_charString += _strip.get_string()[0] + "0" + str(_strip.get_string().length())
-			else:
-				_charString += _strip.get_string()[0] + str(_strip.get_string().length())
-	return(_charString)
 	
 # Fills an empty buffer with a character
 func createBuffer(_bufferChar:String = "x") -> String:

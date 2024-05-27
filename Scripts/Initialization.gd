@@ -5,12 +5,6 @@ static var _TILE_PATH = "res://Data/tile_data.json"
 static var _TILE_AS_TEXT = FileAccess.get_file_as_string(_TILE_PATH)
 static var TILE_DICT = JSON.parse_string(_TILE_AS_TEXT)
 
-# References to map data, only should use getMap for access
-# TODO: Replace with grabbing a saved world gen map set
-var _MAP_PATH = "res://Data/map_data.json"
-var _MAP_AS_TEXT = FileAccess.get_file_as_string(_MAP_PATH)
-var MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
-
 # References to command data, only should use getTokens for access
 static var _CMD_PATH = "res://Data/command_data.json"
 static var _CMD_AS_TEXT = FileAccess.get_file_as_string(_CMD_PATH)
@@ -26,9 +20,6 @@ var worldDay = 25
 var worldHour = 10
 var worldMin = 15
 
-# Debug holder vars
-var mapTS
-
 # REGEX Tools
 static var RX = RegEx.new()
 static var RXExpressions = [
@@ -40,20 +31,18 @@ static var RXExpressions = [
 	r'([0-9:)]{6})\s([a-zA-Z].*)' # Group 1 Time, Group 2 Command String
 ]
 
-# Debug Functions here, eventually this will load data from saves
-# TODO: Will load the given saved map and call appropriate load functions
-func _ready():
-	mapTS = getTileset("ts1")
-
+# Get's Tilset from Data
 func getTileset(tileset:String):
 	return TILE_DICT[tileset][0]
 
+# Get's Tile Data by Symbol
 func getTileData(tileset:Dictionary, type:String, symbol:String):
 	for _tile in tileset[type]:
 		if _tile["tile_data"][0]["tile_symbol"] == symbol:
 			return _tile["tile_data"][0]
 	return false
-	
+
+# Turns color into tile symbol
 func colorToTile(tileset:Dictionary, type:String, color:String):
 	for _tile in tileset[type]:
 		if _tile["tile_data"][0]["tile_color"] == color:
@@ -63,11 +52,8 @@ func colorToTile(tileset:Dictionary, type:String, color:String):
 # HACK: generally useful, returns key + 1: value as long as you have a count try and avoid
 func getNextDictValue(index:int, dict:Dictionary):
 	return dict.values()[index + 1]
-	
-# Debug func until world autoload is started
-func getMap(coords:Array, layer_key:String) -> String:
-	return MAP_DICT["{0},{1}".format(coords)][0][layer_key]
-	
+
+# Get token data if it exists
 func getToken(alias:String):
 	for _token in CMD_DICT["tokens"]:
 		if alias.matchn(_token["alias"][0]):

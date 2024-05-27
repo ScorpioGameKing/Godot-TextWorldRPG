@@ -80,7 +80,7 @@
 							"tile_color": "6a8758",
 							"tile_flags": [
 								{
-									"walkable": false,
+									"walkable": true,
 									"can_interact": false,
 									"is_warp_tile": false,
 									"harmful": false

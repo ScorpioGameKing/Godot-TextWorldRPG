@@ -124,25 +124,6 @@ func loadWorldMap(path:String, id:String):
 	else: 
 		print("No File")
 
-func textRender(image):
-	for _y in range(screenHeight - 1):
-		for _x in range(screenWidth - 1):
-			var _c
-			# HACK: Unsure why but 0,0 fails, hacky grab next tile
-			if _x == 0 and _y == 0: 
-				_c = image.get_pixel(_x + 1,_y).to_html(false)
-			else:
-				_c = image.get_pixel(_x,_y).to_html(false)
-			# Check the color value and add either tile or buffer depending
-			var _sym = InitData.colorToTile(mapTS, "terrain", _c)
-			if typeof(_sym) == TYPE_STRING:
-				worldStr.text += "[color=" + _c + "]" + _sym + "[/color]"
-			else:
-				worldStr.text += "X"
-		# Wrap the line
-		print("Built Row")
-		worldStr.text += "\n"
-
 # TODO: Be Better
 func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
 	var _mapString:String = ""
