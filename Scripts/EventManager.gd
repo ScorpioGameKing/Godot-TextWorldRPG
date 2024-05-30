@@ -75,7 +75,9 @@ func findAndExecuteCommand(commandTokens:Array):
 				"east", "west":
 					WorldManager.moveH(commandTokens[1][1][0]["value"])
 					WorldManager.frameUpdate = true
-					
+		"quit":
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+			
 # Quick Key Commands
 func _input(event):
 	var _curTime = [WorldManager.worldDate["hour"], WorldManager.worldDate["minute"]]

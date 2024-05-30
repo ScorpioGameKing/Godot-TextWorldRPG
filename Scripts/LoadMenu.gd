@@ -13,9 +13,11 @@ func indexSaves():
 				print("Found directory: " + file_name)
 			else:
 				print("Found file: " + file_name)
-				savedMaps[file_name] = savedMapButton.instantiate()
-				get_node("ScrollContainer/VBoxContainer").add_child(savedMaps[file_name])
-				savedMaps[file_name].constructor(file_name)
+				if !savedMaps.has(file_name):
+					print("Indexed Save")
+					savedMaps[file_name] = savedMapButton.instantiate()
+					get_node("ScrollContainer/VBoxContainer").add_child(savedMaps[file_name])
+					savedMaps[file_name].constructor(WorldManager.worldMapsPath, file_name)
 			file_name = dir.get_next()
 	else:
 		print("An error occurred when trying to access the path.")

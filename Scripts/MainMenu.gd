@@ -43,3 +43,5 @@ func _on_new_game_button_button_up():
 func _on_load_game_button_button_up():
 	setMenu("LOAD")
 
+func _on_exit_button_button_up():
+	get_tree().quit()

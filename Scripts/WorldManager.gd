@@ -14,9 +14,6 @@ var worldMapsSaveID = "debug_world.json"
 var worldMaps:Dictionary = {}
 var activeMap = [49,49]
 
-# Noise Maps
-var altitude:FastNoiseLite = FastNoiseLite.new()
-
 # World System Variables
 var worldDate = {"month": 1, "day": 1, "year": 1, "hour": 10, "minute": 15}
 
@@ -27,43 +24,57 @@ var entitiesLive = []
 
 # HACK: Place a player for testing functions
 func _ready():
-	deleteWorldMap(worldMapsPath, worldMapsSaveID)
-	loadWorldMap(worldMapsPath, worldMapsSaveID)
+	#deleteWorldMap(worldMapsPath, worldMapsSaveID)
+	#loadWorldMap(worldMapsPath, worldMapsSaveID)
 	plI.createNewPlayer("Player", "00ff00")
 	plI.setPosition([29,9])
 	entitiesLive.append(WorldManager.plI.getPosition())
 	add_child(plI)
 
 # Generate World
-func createNewWorld(worldDims:Array, path:String, id:String):
+func createNewWorld(worldDims:Array, path:String, id:String, seed:int, bar:ProgressBar, msg:Label):
 	var _time:Dictionary = Time.get_datetime_dict_from_system()
 	print(_time)
 	
+	# Set up vars for progress updates
+	var totalProgress = worldDims[0] * worldDims[1]
+	var currentProgress = 0
+	
+	print(bar)
+	print(msg)
+	
+	msg.text = "Generating Noise"
+	
+	# Noise Maps
+	var altitude:FastNoiseLite = FastNoiseLite.new()
+	
 	# altitude noise settings
 	altitude.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
-	altitude.seed = 1
+	altitude.seed = seed
 	altitude.frequency = 0.0018
 	altitude.fractal_type = FastNoiseLite.FRACTAL_PING_PONG
 	altitude.fractal_octaves = 4
 	altitude.fractal_lacunarity = 3.160
 	altitude.fractal_gain = 0.340
 	
+	msg.text = "Noise Generated, Building Maps"
 	# Iterate map chunks
 	for _y in range(worldDims[1]):
 		for _x in range(worldDims[0]):
 			# Turn map chunk into string
-			noiseToMap(altitude, _x, _y)
+			noiseToMap(altitude, _x, _y, bar, msg)
 	# Turn the map Dictionary into a saveable string and save
+	msg.text = "Maps Built, Saving World"
 	var worldMapsJSONString = JSON.stringify(worldMaps, "\t")
 	saveWorldMap(path, id, worldMapsJSONString)
-	
+	msg.text = "World Saved"
 	# Capture final time and print the times
 	_time = Time.get_datetime_dict_from_system()
 	print("Done")
 	print(_time)
 
 # TODO: Be Better
-func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
+func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int, bar, msg):
 	# Empty map to start, iter through row by row, col by col
 	var _mapString:String = ""
 	for _y in range(mapY * screenDimensions[1], (mapY * screenDimensions[1]) + screenDimensions[1]):
@@ -88,6 +99,7 @@ func noiseToMap(noise:FastNoiseLite, mapX:int, mapY:int):
 		_mapString += _row
 	# Save finished map to a dict with it's x, y as the key
 	worldMaps["{0},{1}".format([mapX, mapY])] = [{"terrain": saveToCharString(_mapString)}]
+	msg.text = "Built Map: {0},{1}".format([mapX, mapY])
 
 # Takes the active map and packs it down 
 func saveToCharString(_unpackedString:String) -> String:
@@ -133,13 +145,6 @@ func loadWorldMap(path:String, id:String):
 	# If the world exists, just load it
 	if FileAccess.file_exists(path + id):
 		print("World Exists")
-		var _MAP_AS_TEXT = FileAccess.get_file_as_string(path + id)
-		worldMaps = JSON.parse_string(_MAP_AS_TEXT)
-		return worldMaps
-	# HACK: Create world if it doesn't exist, eventually UI Save/Load Screen to spcify
-	else: 
-		print("Creating World")
-		createNewWorld(worldDimensions, path, id)
 		var _MAP_AS_TEXT = FileAccess.get_file_as_string(path + id)
 		worldMaps = JSON.parse_string(_MAP_AS_TEXT)
 		return worldMaps
