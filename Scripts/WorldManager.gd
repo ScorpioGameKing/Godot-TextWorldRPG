@@ -14,6 +14,9 @@ var worldMapsSaveID = "debug_world.json"
 var worldMaps:Dictionary = {}
 var activeMap = [49,49]
 
+# Noise Maps
+var altitude:FastNoiseLite = FastNoiseLite.new()
+
 # World System Variables
 var worldDate = {"month": 1, "day": 1, "year": 1, "hour": 10, "minute": 15}
 
@@ -35,9 +38,6 @@ func _ready():
 func createNewWorld(worldDims:Array, path:String, id:String):
 	var _time:Dictionary = Time.get_datetime_dict_from_system()
 	print(_time)
-	
-	# Noise Maps
-	var altitude:FastNoiseLite = FastNoiseLite.new()
 	
 	# altitude noise settings
 	altitude.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH

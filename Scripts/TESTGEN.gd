@@ -69,19 +69,19 @@ func _ready():
 	# Hard step, constant value interplation gradient to set pixel colors to tile colors
 	colorGrade.interpolation_color_space = Gradient.GRADIENT_COLOR_SPACE_OKLAB
 	colorGrade.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_CONSTANT
-	#colorGrade.add_point(0.00, "1b85b8") # Water
-	#colorGrade.add_point(0.39, "1b85b8")
-	#colorGrade.add_point(0.39, "ffe8a3") # Sand
-	#colorGrade.add_point(0.43, "ffe8a3")
-	#colorGrade.add_point(0.43, "1e6649") # Grass
-	#colorGrade.add_point(0.65, "1e6649")
-	#colorGrade.add_point(0.65, "6a8758") # Forest
-	#colorGrade.add_point(0.75, "6a8758")
-	#colorGrade.add_point(0.75, "5c8084") # Mountain
-	#colorGrade.add_point(0.90, "5c8084")
-	#colorGrade.add_point(0.90, "ffffff") # Snow
-	#colorGrade.add_point(1.00, "ffffff")
-	setGradient(colorGrade, mois)
+	colorGrade.add_point(0.00, "1b85b8") # Water
+	colorGrade.add_point(0.39, "1b85b8")
+	colorGrade.add_point(0.39, "ffe8a3") # Sand
+	colorGrade.add_point(0.43, "ffe8a3")
+	colorGrade.add_point(0.43, "1e6649") # Grass
+	colorGrade.add_point(0.65, "1e6649")
+	colorGrade.add_point(0.65, "6a8758") # Forest
+	colorGrade.add_point(0.75, "6a8758")
+	colorGrade.add_point(0.75, "5c8084") # Mountain
+	colorGrade.add_point(0.90, "5c8084")
+	colorGrade.add_point(0.90, "ffffff") # Snow
+	colorGrade.add_point(1.00, "ffffff")
+	#setGradient(colorGrade, mois)
 	
 	# Generate the texture at the desired size then apply gradient
 	var moisTex:NoiseTexture2D = NoiseTexture2D.new()
