@@ -11,5 +11,7 @@ func _on_button_up():
 	if seed == "": seed = 1
 	WorldManager.createNewWorld(WorldManager.worldDimensions, WorldManager.worldMapsPath, worldID, int(seed), $"../ProgressBars/ProgressBar", $"../ProgressBars/CreationMsg")
 	WorldManager.loadWorldMap(WorldManager.worldMapsPath, worldID)
+	WorldManager.frameUpdate = true
+	EventManager.commandsRecived = []
 	get_tree().change_scene_to_file("res://Scenes/console_window.tscn")
 	

@@ -147,6 +147,7 @@ func loadWorldMap(path:String, id:String):
 		print("World Exists")
 		var _MAP_AS_TEXT = FileAccess.get_file_as_string(path + id)
 		worldMaps = JSON.parse_string(_MAP_AS_TEXT)
+		EventManager.commandsRecived = []
 		return worldMaps
 
 # Place Entities on a map string

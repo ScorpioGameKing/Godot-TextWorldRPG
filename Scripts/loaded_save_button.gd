@@ -10,4 +10,5 @@ func constructor(path, id):
 
 func _on_button_button_up():
 	WorldManager.loadWorldMap(loadedWorldPath, loadedWorldID)
+	WorldManager.frameUpdate = true
 	get_tree().change_scene_to_file("res://Scenes/console_window.tscn")
