@@ -12,19 +12,40 @@ var pos = [0,0]
 var moveableDirs = [false, false, false, false] # N, S, E, W
 
 # Player Stats
-var hp = 50
-var mp = 50
-var strength = 5
-var agility = 5
-var inteligence = 5
-var charisma = 5
-var luck = 5
+var hpBase = 50
+var mpBase = 50
+var strengthBase = 5
+var agilityBase = 5
+var inteligenceBase = 5
+var charismaBase = 5
+var luckBase = 5
+
+# Player Stats
+var hpCurrent = 50
+var mpCurrent = 50
+var strengthCurrent = 5
+var agilityCurrent = 5
+var inteligenceCurrent = 5
+var charismaCurrent = 5
+var luckCurrent = 5
 
 # Create a new player
 func createNewPlayer(newName:String, newColor:String):
 	playerName = newName
 	playerSymbol = playerName.substr(0,1)
 	playerColor = newColor
+
+func getStats() -> Dictionary:
+	return {
+	"name": [playerName, playerSymbol],
+	"hp": [hpBase, hpCurrent], 
+	"mp": [mpBase, mpCurrent], 
+	"strength": [strengthBase, strengthCurrent], 
+	"agility": [agilityBase, agilityCurrent], 
+	"inteligence": [inteligenceBase, inteligenceCurrent], 
+	"charisma": [charismaBase, charismaCurrent],
+	 "luck": [luckBase, luckCurrent]
+	}
 
 # Get and set position
 func getPosition() -> Array:

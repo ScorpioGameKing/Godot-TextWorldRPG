@@ -2,7 +2,9 @@
 	"tokens": [
 		{
 			"alias": [
-				"move"
+				"move",
+				"go",
+				"walk"
 			],
 			"data": [
 				{
@@ -37,7 +39,8 @@
 		},
 		{
 			"alias": [
-				"north"
+				"north",
+				"up"
 			],
 			"data": [
 				{
@@ -48,7 +51,8 @@
 		},
 		{
 			"alias": [
-				"east"
+				"east",
+				"right"
 			],
 			"data": [
 				{
@@ -59,7 +63,8 @@
 		},
 		{
 			"alias": [
-				"south"
+				"south",
+				"down"
 			],
 			"data": [
 				{
@@ -70,7 +75,8 @@
 		},
 		{
 			"alias": [
-				"west"
+				"west",
+				"left"
 			],
 			"data": [
 				{

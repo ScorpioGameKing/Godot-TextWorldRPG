@@ -56,6 +56,7 @@ func getNextDictValue(index:int, dict:Dictionary):
 # Get token data if it exists
 func getToken(alias:String):
 	for _token in CMD_DICT["tokens"]:
-		if alias.matchn(_token["alias"][0]):
-			var _data = getNextDictValue(0, _token)
-			return [alias, _data]
+		for _i in range(_token["alias"].size()):
+			if alias.matchn(_token["alias"][_i]):
+				var _data = getNextDictValue(0, _token)
+				return [alias, _data]

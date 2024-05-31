@@ -53,14 +53,14 @@ func findAndExecuteCommand(commandTokens:Array):
 	# TODO: Reference against existing Command List loaded by InitData
 	match commandTokens[0][0].to_lower():
 		# Player Movement
-		"move":
+		"move", "go", "walk":
 			match commandTokens[1][0].to_lower():
 				# Vertical
-				"north", "south":
+				"north", "south", "up", "down":
 					WorldManager.plI.moveV(commandTokens[1][1][0]["value"])
 					WorldManager.frameUpdate = true
 				# Horizontal
-				"east", "west":
+				"east", "west", "left", "right":
 					WorldManager.plI.moveH(commandTokens[1][1][0]["value"])
 					WorldManager.frameUpdate = true
 			
@@ -68,11 +68,11 @@ func findAndExecuteCommand(commandTokens:Array):
 		"travel":
 			match commandTokens[1][0].to_lower():
 				# Vertical 
-				"north", "south":
+				"north", "south", "up", "down":
 					WorldManager.moveV(commandTokens[1][1][0]["value"])
 					WorldManager.frameUpdate = true
 				# Horizontal
-				"east", "west":
+				"east", "west", "left", "right":
 					WorldManager.moveH(commandTokens[1][1][0]["value"])
 					WorldManager.frameUpdate = true
 		"quit":
