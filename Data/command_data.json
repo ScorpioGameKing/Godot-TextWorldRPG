@@ -10,7 +10,8 @@
 				{
 					"type": "CMD",
 					"args": 1,
-					"args_types": "DIR"
+					"args_types": "DIR",
+					"description": "Move/Walk/Go DIR -> \n\nThis takes a DIR type argument and moves the player token on the map in that direction. \n\n"
 				}
 			]
 		},
@@ -22,6 +23,7 @@
 				{
 					"type": "CMD",
 					"args": 0,
+					"description": "Quit -> \n\nQuit the current game and go back to the main menu \n\n"
 				}
 			]
 		},
@@ -33,7 +35,8 @@
 				{
 					"type": "CMD",
 					"args": 1,
-					"args_types": "DIR"
+					"args_types": "DIR",
+					"description": "Travel DIR -> \n\nThis takes a DIR type argument and moves the player token to the next map in that direction. \n\n"
 				}
 			]
 		},
@@ -45,7 +48,8 @@
 			"data": [
 				{
 					"type": "DIR",
-					"value": -1
+					"value": -1,
+					"description": "North/Up -> \n\nDirection argument, use when asked for DIR \n\n"
 				}
 			]
 		},
@@ -57,7 +61,8 @@
 			"data": [
 				{
 					"type": "DIR",
-					"value": 1
+					"value": 1,
+					"description": "East/Left -> \n\nDirection argument, use when asked for DIR \n\n"
 				}
 			]
 		},
@@ -69,7 +74,8 @@
 			"data": [
 				{
 					"type": "DIR",
-					"value": 1
+					"value": 1,
+					"description": "South/Down -> \n\nDirection argument, use when asked for DIR \n\n"
 				}
 			]
 		},
@@ -81,7 +87,8 @@
 			"data": [
 				{
 					"type": "DIR",
-					"value": -1
+					"value": -1,
+					"description": "West/Left -> \n\nDirection argument, use when asked for DIR \n\n"
 				}
 			]
 		}

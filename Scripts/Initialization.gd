@@ -58,5 +58,6 @@ func getToken(alias:String):
 	for _token in CMD_DICT["tokens"]:
 		for _i in range(_token["alias"].size()):
 			if alias.matchn(_token["alias"][_i]):
+				print(_token["alias"][_i])
 				var _data = getNextDictValue(0, _token)
 				return [alias, _data]

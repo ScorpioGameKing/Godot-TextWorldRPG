@@ -48,6 +48,7 @@ func _on_command_enter_text_submitted(new_text:String):
 	for _i in range(EventManager.errorQueue.size()):
 		#print(EventManager.errorQueue[_i])
 		EventManager.commandsRecived.append([str(_curTime[0]) + ":" + str(_curTime[1])+ ") " + EventManager.errorQueue[_i]])
+		EventManager.errorQueue.pop_front()
 	# Display results
 	EventManager.updateConsoleLog = true
 	

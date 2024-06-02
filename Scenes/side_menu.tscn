@@ -312,3 +312,4 @@ More placeholder text
 all the placeholder text"
 
 [connection signal="button_up" from="Columns/SheetButtons/PlayerButton" to="." method="_on_player_button_button_up"]
+[connection signal="button_up" from="Columns/SheetButtons/HelpButton" to="." method="_on_help_button_button_up"]
