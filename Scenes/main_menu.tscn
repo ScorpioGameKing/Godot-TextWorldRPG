@@ -153,7 +153,6 @@ text = "Back"
 metadata/_edit_lock_ = true
 
 [node name="MainMenu" type="Control" parent="MenuControl/FrontMenus"]
-visible = false
 anchors_preset = 0
 offset_left = 173.0
 offset_top = 240.0
@@ -172,18 +171,16 @@ metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuControl/FrontMenus/MainMenu"]
 layout_mode = 2
-offset_top = 3.0
+offset_top = -12.0
 offset_right = 256.0
-offset_bottom = 179.0
+offset_bottom = 185.0
 theme = ExtResource("1_roasr")
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 4
-metadata/_edit_lock_ = true
 
 [node name="Buttons" type="VBoxContainer" parent="MenuControl/FrontMenus/MainMenu/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_roasr")
-metadata/_edit_lock_ = true
 
 [node name="NewGameButton" type="Button" parent="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons"]
 layout_mode = 2
@@ -204,6 +201,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_roasr")
 text = "Delete Saves"
+metadata/_edit_lock_ = true
+
+[node name="MapBuilder" type="Button" parent="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_roasr")
+text = "Map Builder"
 metadata/_edit_lock_ = true
 
 [node name="OptionsButton" type="Button" parent="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons"]
@@ -249,4 +253,5 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="MenuControl/FrontMenus/LoadMenu/BackButton" to="MenuControl" method="_on_back_button_button_up"]
 [connection signal="button_up" from="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons/NewGameButton" to="MenuControl" method="_on_new_game_button_button_up"]
 [connection signal="button_up" from="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons/LoadGameButton" to="MenuControl" method="_on_load_game_button_button_up"]
+[connection signal="button_up" from="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons/MapBuilder" to="MenuControl" method="_on_map_builder_button_up"]
 [connection signal="button_up" from="MenuControl/FrontMenus/MainMenu/MarginContainer/Buttons/ExitButton" to="MenuControl" method="_on_exit_button_button_up"]

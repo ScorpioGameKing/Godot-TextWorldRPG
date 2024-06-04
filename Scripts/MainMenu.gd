@@ -28,11 +28,18 @@ func setMenu(newMenu:String):
 			currentMenu.visible = false
 			currentMenu = $FrontMenus/MainMenu
 			currentMenu.visible = true
+		"EDITOR":
+			print("Map Editor")
+			EditorManager.inEditor = true
+			get_tree().change_scene_to_file("res://Scenes/map_builder_root.tscn")
 		"OPTIONS":
 			print("Options Menu")
 			currentMenu.visible = false
 			currentMenu = $FrontMenus/MainMenu
 			currentMenu.visible = true
+		"EXIT":
+			print("Exiting")
+			get_tree().quit()
 
 func _on_back_button_button_up():
 	setMenu("MAIN")
@@ -42,6 +49,12 @@ func _on_new_game_button_button_up():
 
 func _on_load_game_button_button_up():
 	setMenu("LOAD")
+	
+func _on_map_builder_button_up():
+	setMenu("EDITOR")
 
 func _on_exit_button_button_up():
-	get_tree().quit()
+	setMenu("EXIT")
+
+
+

@@ -1,0 +1,477 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0csxpw76fupv"]
+
+[ext_resource type="Script" path="res://Scripts/map_editor.gd" id="1_if5uk"]
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_myn7i"]
+[ext_resource type="Script" path="res://Scripts/editor_exit.gd" id="6_ri1uw"]
+
+[node name="MapBuilderRoot" type="Node2D"]
+script = ExtResource("1_if5uk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ControlRoot" type="Control" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="MainM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="MainOptions" type="Control" parent="MarginContainer/ControlRoot/MainM"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="MenuPanel" type="PanelContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme = ExtResource("1_myn7i")
+
+[node name="MenuButtones" type="HBoxContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel"]
+layout_mode = 2
+
+[node name="Save" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Save"]
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Load"]
+layout_mode = 2
+text = "Load"
+
+[node name="New" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/New"]
+layout_mode = 2
+text = "New"
+
+[node name="Exit" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("6_ri1uw")
+
+[node name="EditOptM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 448.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="EditorOptions" type="Control" parent="MarginContainer/ControlRoot/EditOptM"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="BoxContainer" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions"]
+layout_mode = 2
+offset_right = 192.0
+offset_bottom = 384.0
+theme_override_constants/separation = 1
+
+[node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_myn7i")
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/LabelBG"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 23.0
+theme = ExtResource("1_myn7i")
+text = "Editor Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_myn7i")
+
+[node name="EditorM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 448.0
+focus_mode = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Editor" type="Control" parent="MarginContainer/ControlRoot/EditorM"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="Control" type="Control" parent="MarginContainer/ControlRoot/EditorM/Editor"]
+clip_contents = true
+custom_minimum_size = Vector2(764, 384)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 768.0
+offset_bottom = 384.0
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control"]
+layout_mode = 0
+offset_right = 764.0
+offset_bottom = 388.0
+theme_override_constants/separation = 1
+
+[node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_myn7i")
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/LabelBG"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 23.0
+theme = ExtResource("1_myn7i")
+text = "Editor View"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container"]
+custom_minimum_size = Vector2(764, 358)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="0" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="1" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="2" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="3" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="4" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="5" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="6" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="7" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="8" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="9" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="10" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="11" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="12" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="13" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="14" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="15" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="16" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="17" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="18" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="19" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="20" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="21" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="TileM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="TileOptions" type="Control" parent="MarginContainer/ControlRoot/TileM"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="Organizer" type="VBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 200.0
+theme_override_constants/separation = 1
+
+[node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_myn7i")
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/LabelBG"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 24.0
+theme = ExtResource("1_myn7i")
+text = "Tile View"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TilesBG" type="PanelContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_myn7i")
+
+[node name="HOrganizer" type="HBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG"]
+layout_mode = 2
+
+[node name="TileMetaOpt" type="VBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type:"
+horizontal_alignment = 1
+
+[node name="TileTypeSelection" type="OptionButton" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt"]
+layout_mode = 2
+button_pressed = true
+action_mode = 1
+allow_reselect = true
+
+[node name="TileScrollSelect" type="ScrollContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TileOrganizer" type="HBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileScrollSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MapM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="MapOptions" type="Control" parent="MarginContainer/ControlRoot/MapM"]
+clip_contents = true
+layout_mode = 2
+theme = ExtResource("1_myn7i")
+
+[node name="MapVerticalBox" type="VBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 584.0
+theme_override_constants/separation = 1
+
+[node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_myn7i")
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/LabelBG"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 23.0
+theme = ExtResource("1_myn7i")
+text = "Map Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapPanel" type="PanelContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_myn7i")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel"]
+layout_mode = 2
+
+[node name="MapSettings" type="VBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Name"]
+layout_mode = 2
+text = "Name: "
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Map Name"
+flat = true
+
+[node name="Type" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Type"]
+layout_mode = 2
+text = "Type: "
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Type"]
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 3
+item_count = 4
+selected = 0
+popup/item_0/text = "World"
+popup/item_0/id = 0
+popup/item_1/text = "Town"
+popup/item_1/id = 1
+popup/item_2/text = "Dungeon"
+popup/item_2/id = 2
+popup/item_3/text = "Battle"
+popup/item_3/id = 3
+
+[node name="Tileset" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset"]
+layout_mode = 2
+text = "Tileset: "
+
+[node name="TilesetSelector" type="OptionButton" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset"]
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 3
+item_count = 1
+selected = 0
+popup/item_0/text = "ts1"
+popup/item_0/id = 0
+
+[node name="Description" type="VBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description"]
+layout_mode = 2
+text = "Description:"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="DescriptionText" type="RichTextLabel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description/Panel"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+offset_right = 190.0
+offset_bottom = 180.0
+theme_override_font_sizes/normal_font_size = 12
+text = "Default map description text. Smaller font and word wrap enabled. 
+
+Description gotten with command, maybe something like:
+INSPECT HERE/ITEM/ENTITY
+
+HERE Giving this string"
+
+[connection signal="button_up" from="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit/Button" to="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit/Button" method="_on_button_up"]
+[connection signal="item_selected" from="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt/TileTypeSelection" to="." method="_on_tile_type_selection_item_selected"]
+[connection signal="item_selected" from="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset/TilesetSelector" to="." method="_on_tileset_selector_item_selected"]

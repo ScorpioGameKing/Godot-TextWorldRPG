@@ -32,7 +32,7 @@ func _ready():
 	add_child(plI)
 
 # Generate World
-func createNewWorld(worldDims:Array, path:String, id:String, seed:int, bar:ProgressBar, msg:Label):
+func createNewWorld(worldDims:Array, path:String, id:String, _seed:int, bar:ProgressBar, msg:Label):
 	var _time:Dictionary = Time.get_datetime_dict_from_system()
 	print(_time)
 	
@@ -50,7 +50,7 @@ func createNewWorld(worldDims:Array, path:String, id:String, seed:int, bar:Progr
 	
 	# altitude noise settings
 	altitude.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
-	altitude.seed = seed
+	altitude.seed = _seed
 	altitude.frequency = 0.0018
 	altitude.fractal_type = FastNoiseLite.FRACTAL_PING_PONG
 	altitude.fractal_octaves = 4

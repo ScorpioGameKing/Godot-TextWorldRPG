@@ -7,9 +7,9 @@ func _on_button_up():
 	if $"../RowContainer/NameRow/LineEdit".text != "":
 		worldID = $"../RowContainer/NameRow/LineEdit".text
 	print(worldID)
-	var seed = $"../RowContainer/SeedRow/LineEdit".text
-	if seed == "": seed = 1
-	WorldManager.createNewWorld(WorldManager.worldDimensions, WorldManager.worldMapsPath, worldID, int(seed), $"../ProgressBars/ProgressBar", $"../ProgressBars/CreationMsg")
+	var _seed = $"../RowContainer/SeedRow/LineEdit".text
+	if _seed == "": _seed = 1
+	WorldManager.createNewWorld(WorldManager.worldDimensions, WorldManager.worldMapsPath, worldID, int(_seed), $"../ProgressBars/ProgressBar", $"../ProgressBars/CreationMsg")
 	WorldManager.loadWorldMap(WorldManager.worldMapsPath, worldID)
 	WorldManager.frameUpdate = true
 	EventManager.commandsRecived = []
