@@ -30,8 +30,7 @@ func setMenu(newMenu:String):
 			currentMenu.visible = true
 		"EDITOR":
 			print("Map Editor")
-			EditorManager.inEditor = true
-			get_tree().change_scene_to_file("res://Scenes/map_builder_root.tscn")
+			EditorManager.loadEditor()
 		"OPTIONS":
 			print("Options Menu")
 			currentMenu.visible = false

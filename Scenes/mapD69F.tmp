@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0csxpw76fupv"]
+[gd_scene load_steps=4 format=3 uid="uid://d0csxpw76fupv"]
 
 [ext_resource type="Script" path="res://Scripts/map_editor.gd" id="1_if5uk"]
 [ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_myn7i"]
-[ext_resource type="Script" path="res://Scripts/editor_options.gd" id="4_ogs24"]
 [ext_resource type="Script" path="res://Scripts/editor_exit.gd" id="6_ri1uw"]
 
 [node name="MapBuilderRoot" type="Node2D"]
@@ -125,7 +124,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_myn7i")
-script = ExtResource("4_ogs24")
 
 [node name="Rows" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer"]
 layout_mode = 2

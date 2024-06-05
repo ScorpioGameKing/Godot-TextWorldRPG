@@ -24,5 +24,5 @@ func _on_button_gui_input(event):
 			MOUSE_BUTTON_RIGHT:
 				# right button clicked
 				print("Right gets Info")
-				EditorManager.setTileInfoDisplay()
+				EditorManager.setTileInfoDisplay(tileData)
 
