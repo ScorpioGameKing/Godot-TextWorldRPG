@@ -504,6 +504,7 @@ size_flags_horizontal = 3
 text_overrun_behavior = 3
 item_count = 1
 selected = 0
+allow_reselect = true
 popup/item_0/text = "ts1"
 popup/item_0/id = 0
 
@@ -532,6 +533,7 @@ INSPECT HERE/ITEM/ENTITY
 
 HERE Giving this string"
 
+[connection signal="button_up" from="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Save/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit/Button" to="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit/Button" method="_on_button_up"]
 [connection signal="item_selected" from="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt/TileTypeSelection" to="." method="_on_tile_type_selection_item_selected"]
 [connection signal="item_selected" from="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset/TilesetSelector" to="." method="_on_tileset_selector_item_selected"]

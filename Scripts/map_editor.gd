@@ -46,10 +46,15 @@ func initMapGrid():
 	for _y in range(mapDims[1]):
 		var _row = get_node("MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel/ScrollContainer/Rows/{0}".format([_y]))
 		for _x in range(mapDims[0]):
-			tileGrid["{0},{1}".format(mapDims)] = editorTile.instantiate()
-			_row.add_child(tileGrid["{0},{1}".format(mapDims)])
-			tileGrid["{0},{1}".format(mapDims)].setTile(EditorManager.activeTileset)
+			tileGrid["{0},{1}".format([_x, _y])] = editorTile.instantiate()
+			_row.add_child(tileGrid["{0},{1}".format([_x, _y])])
+			tileGrid["{0},{1}".format([_x, _y])].setTile(EditorManager.activeTileset)
 
-func _on_option_button_item_selected(index):
-	EditorManager.activeTileset = InitData.getTileset(tilesetSelector.get_item_text(index))
-	print(EditorManager.activeTileset)
+func _on_tileset_selector_item_selected(index):
+	print("Set Tileset")
+
+
+func _on_button_button_up():
+	print("Saving Map")
+	for _tile in tileGrid:
+		print(_tile)
