@@ -19,10 +19,11 @@ func _on_button_gui_input(event):
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				# left button clicked
-				print("Left sets Brush")
+				print("Left sets Brush and gets Info")
 				EditorManager.setBrush(tileType, tileSymbol, tileData)
+				EditorManager.setTileInfoDisplay(tileData)
 			MOUSE_BUTTON_RIGHT:
 				# right button clicked
-				print("Right gets Info")
+				print("Right just gets Info")
 				EditorManager.setTileInfoDisplay(tileData)
 

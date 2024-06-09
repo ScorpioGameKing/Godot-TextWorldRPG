@@ -26,7 +26,7 @@ func setMenu(newMenu:String):
 		"DELETE":
 			print("Deletion Menu")
 			currentMenu.visible = false
-			currentMenu = $FrontMenus/MainMenu
+			currentMenu = $FrontMenus/DeleteMenu
 			currentMenu.visible = true
 		"EDITOR":
 			print("Map Editor")
@@ -48,12 +48,14 @@ func _on_new_game_button_button_up():
 
 func _on_load_game_button_button_up():
 	setMenu("LOAD")
-	
+
+func _on_delete_save_button_button_up():
+	setMenu("DELETE")
+
 func _on_map_builder_button_up():
 	setMenu("EDITOR")
 
 func _on_exit_button_button_up():
 	setMenu("EXIT")
-
 
 

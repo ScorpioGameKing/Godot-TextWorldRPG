@@ -11,6 +11,7 @@ script = ExtResource("1_if5uk")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+theme = ExtResource("1_myn7i")
 
 [node name="ControlRoot" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -20,6 +21,7 @@ theme = ExtResource("1_myn7i")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 64.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -38,9 +40,11 @@ theme = ExtResource("1_myn7i")
 
 [node name="MenuButtones" type="HBoxContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Save" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -48,10 +52,12 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Save"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Save"
 
 [node name="Load" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -59,10 +65,12 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Load"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Load"
 
 [node name="New" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -70,10 +78,12 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/New"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "New"
 
 [node name="Exit" type="MarginContainer" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -81,6 +91,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Button" type="Button" parent="MarginContainer/ControlRoot/MainM/MainOptions/MenuPanel/MenuButtones/Exit"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Exit"
 script = ExtResource("6_ri1uw")
 
@@ -90,6 +101,7 @@ offset_left = 192.0
 offset_top = 64.0
 offset_right = 384.0
 offset_bottom = 448.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -104,6 +116,7 @@ theme = ExtResource("1_myn7i")
 layout_mode = 2
 offset_right = 192.0
 offset_bottom = 384.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/separation = 1
 
 [node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer"]
@@ -129,61 +142,73 @@ script = ExtResource("4_ogs24")
 
 [node name="Rows" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Name" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Name"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Name:
 "
 
 [node name="TileName" type="RichTextLabel" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Name"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 bbcode_enabled = true
 text = "Default"
 
 [node name="Symbol" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Symbol"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Symbol:
 "
 
 [node name="TileSymbol" type="RichTextLabel" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Symbol"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 bbcode_enabled = true
 text = "Default"
 
 [node name="Color" type="HBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Color"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Color:
 "
 
 [node name="TileColor" type="RichTextLabel" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows/Color"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 bbcode_enabled = true
 text = "Default"
 
 [node name="Flags Label" type="Label" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Tile Flags:
 "
 horizontal_alignment = 1
 
 [node name="Flags" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditOptM/EditorOptions/BoxContainer/PanelContainer/Rows"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="EditorM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
 layout_mode = 0
@@ -193,6 +218,7 @@ offset_right = 1152.0
 offset_bottom = 448.0
 focus_mode = 2
 mouse_filter = 0
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -210,11 +236,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 768.0
 offset_bottom = 384.0
+theme = ExtResource("1_myn7i")
 
 [node name="Container" type="VBoxContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control"]
 layout_mode = 0
 offset_right = 764.0
 offset_bottom = 388.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/separation = 1
 
 [node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container"]
@@ -237,6 +265,7 @@ custom_minimum_size = Vector2(764, 358)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("1_myn7i")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ControlRoot/EditorM/Editor/Control/Container/Panel"]
 layout_mode = 2
@@ -342,6 +371,7 @@ offset_left = 192.0
 offset_top = 448.0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -356,6 +386,7 @@ theme = ExtResource("1_myn7i")
 layout_mode = 0
 offset_right = 960.0
 offset_bottom = 200.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/separation = 1
 
 [node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer"]
@@ -380,38 +411,45 @@ theme = ExtResource("1_myn7i")
 
 [node name="HOrganizer" type="HBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="TileMetaOpt" type="VBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 text = "Type:"
 horizontal_alignment = 1
 
 [node name="TileTypeSelection" type="OptionButton" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileMetaOpt"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 button_pressed = true
 action_mode = 1
 allow_reselect = true
 
-[node name="TileScrollSelect" type="ScrollContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer"]
+[node name="TileScrollSelect" type="VBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 
 [node name="TileOrganizer" type="HBoxContainer" parent="MarginContainer/ControlRoot/TileM/TileOptions/Organizer/TilesBG/HOrganizer/TileScrollSelect"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_myn7i")
 
 [node name="MapM" type="MarginContainer" parent="MarginContainer/ControlRoot"]
 layout_mode = 0
 offset_top = 64.0
 offset_right = 192.0
 offset_bottom = 648.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
@@ -426,6 +464,7 @@ theme = ExtResource("1_myn7i")
 layout_mode = 0
 offset_right = 192.0
 offset_bottom = 584.0
+theme = ExtResource("1_myn7i")
 theme_override_constants/separation = 1
 
 [node name="LabelBG" type="Panel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox"]
@@ -450,35 +489,43 @@ theme = ExtResource("1_myn7i")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="MapSettings" type="VBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_myn7i")
 
 [node name="Name" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Name"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Name: "
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Name"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 placeholder_text = "Map Name"
 flat = true
 
 [node name="Type" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Type"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Type: "
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Type"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 text_overrun_behavior = 3
 item_count = 4
 selected = 0
@@ -493,14 +540,17 @@ popup/item_3/id = 3
 
 [node name="Tileset" type="HBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Tileset: "
 
 [node name="TilesetSelector" type="OptionButton" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Tileset"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_myn7i")
 text_overrun_behavior = 3
 item_count = 1
 selected = 0
@@ -510,21 +560,25 @@ popup/item_0/id = 0
 
 [node name="Description" type="VBoxContainer" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="Label" type="Label" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description"]
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 text = "Description:"
 horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
+theme = ExtResource("1_myn7i")
 
 [node name="DescriptionText" type="RichTextLabel" parent="MarginContainer/ControlRoot/MapM/MapOptions/MapVerticalBox/MapPanel/ScrollContainer/MapSettings/Description/Panel"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 offset_right = 190.0
 offset_bottom = 180.0
+theme = ExtResource("1_myn7i")
 theme_override_font_sizes/normal_font_size = 12
 text = "Default map description text. Smaller font and word wrap enabled. 
 

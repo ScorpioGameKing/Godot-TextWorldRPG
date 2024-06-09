@@ -19,6 +19,8 @@ func setTile(_ts, _type = tileType, _symbol = tileSymbol):
 
 func updateTile(_ts, _type, _symbol):
 	tileData = InitData.getTileData(_ts, _type, _symbol)
+	if _type != tileType: tileType = _type
+	if _symbol != tileType: tileSymbol = _symbol
 	if tileData:
 		colorSymbol = "[color={0}]{1}[/color]".format([tileData["tile_color"], _symbol])
 	else: 

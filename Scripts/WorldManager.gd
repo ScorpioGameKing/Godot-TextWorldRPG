@@ -10,7 +10,7 @@ var defaultTS = InitData.getTileset("ts1")
 var worldDimensions:Array = [100, 100]
 var screenDimensions:Array = [71, 21]
 var worldMapsPath = "user://Data/Saves/"
-var worldMapsSaveID = "debug_world.json"
+var worldMapsSaveID = "debug_world"
 var worldMaps:Dictionary = {}
 var activeMap = [49,49]
 
