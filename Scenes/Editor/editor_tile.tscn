@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bycdnembctco7"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_oxpx8"]
+[ext_resource type="Script" path="res://Scripts/Editor/editor_tile.gd" id="2_b75pc"]
+
+[node name="MarginContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(10, 23)
+offset_right = 10.0
+offset_bottom = 23.0
+mouse_filter = 0
+theme = ExtResource("1_oxpx8")
+theme_override_constants/margin_right = 1
+script = ExtResource("2_b75pc")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(10, 23)
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Button"]
+custom_minimum_size = Vector2(10, 23)
+layout_mode = 2
+offset_right = 10.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme = ExtResource("1_oxpx8")
+bbcode_enabled = true
+text = "x"
+
+[connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]

@@ -1,0 +1,315 @@
+[gd_scene load_steps=3 format=3 uid="uid://b77dv3pd3sjrb"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_fyut0"]
+[ext_resource type="Script" path="res://Scripts/Game/side_menu.gd" id="2_uak8k"]
+
+[node name="SideMenu" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(382, 644)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fyut0")
+script = ExtResource("2_uak8k")
+
+[node name="Columns" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(382, 644)
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 648.0
+theme = ExtResource("1_fyut0")
+theme_override_constants/separation = 2
+
+[node name="SheetButtons" type="VBoxContainer" parent="Columns"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 612)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fyut0")
+theme_override_constants/separation = 0
+
+[node name="StatBars" type="Control" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(0, 386)
+layout_mode = 2
+
+[node name="StatStacks" type="VBoxContainer" parent="Columns/SheetButtons/StatBars"]
+custom_minimum_size = Vector2(64, 384)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="AuxStats2" type="HBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks"]
+visible = false
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Holy" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/Holy"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.681647, 0.79335, 0.833206, 1)
+
+[node name="HolyBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/Holy"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HolyLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/Holy/HolyBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "HY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DemonicEnergy" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/DemonicEnergy"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.529083, 0.118825, 0.724038, 1)
+
+[node name="DMCBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/DemonicEnergy"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="DMCLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats2/DemonicEnergy/DMCBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "DM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AuxStats1" type="HBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Chi" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Chi"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.804678, 0.602898, 0.246812, 1)
+
+[node name="ChiBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Chi"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="ChiLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Chi/ChiBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "QI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aura" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Aura"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.133704, 0.639181, 0.54848, 1)
+
+[node name="AuraBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Aura"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="AuraLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/AuxStats1/Aura/AuraBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "AU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoreStats" type="HBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="HP" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/HP"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.784314, 0.168627, 0.145098, 1)
+
+[node name="HPBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/HP"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/HP/HPBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MP" type="VBoxContainer" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/MP"]
+custom_minimum_size = Vector2(32, 90)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.25098, 0.172549, 0.843137, 1)
+
+[node name="MPBG" type="Panel" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/MP"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="MPLabel" type="Label" parent="Columns/SheetButtons/StatBars/StatStacks/CoreStats/MP/MPBG"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+text = "MP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Player"
+text_overrun_behavior = 1
+
+[node name="SkillButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Skills"
+text_overrun_behavior = 1
+
+[node name="InventoryButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Inventory"
+text_overrun_behavior = 1
+
+[node name="QuestsButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Quests"
+text_overrun_behavior = 1
+
+[node name="JournalButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Journal
+"
+text_overrun_behavior = 1
+
+[node name="MacrosButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Macros
+"
+text_overrun_behavior = 1
+
+[node name="HelpButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Help
+"
+text_overrun_behavior = 1
+
+[node name="SettingsButton" type="Button" parent="Columns/SheetButtons"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+theme = ExtResource("1_fyut0")
+text = "Settings
+"
+text_overrun_behavior = 1
+
+[node name="ActiveSheet" type="VBoxContainer" parent="Columns"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 612)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fyut0")
+
+[node name="Panel" type="Panel" parent="Columns/ActiveSheet"]
+custom_minimum_size = Vector2(318, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fyut0")
+
+[node name="SheetLabel" type="Label" parent="Columns/ActiveSheet/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 310.0
+offset_bottom = 32.0
+text = "Sheet Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SheetBG" type="Panel" parent="Columns/ActiveSheet"]
+custom_minimum_size = Vector2(318, 612)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_fyut0")
+
+[node name="SheetInfo" type="RichTextLabel" parent="Columns/ActiveSheet/SheetBG"]
+custom_minimum_size = Vector2(318, 612)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+bbcode_enabled = true
+text = "SOME PLACEHOLDER TEXT
+
+More placeholder text
+
+all the placeholder text"
+
+[connection signal="button_up" from="Columns/SheetButtons/PlayerButton" to="." method="_on_player_button_button_up"]
+[connection signal="button_up" from="Columns/SheetButtons/HelpButton" to="." method="_on_help_button_button_up"]

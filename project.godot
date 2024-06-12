@@ -11,16 +11,16 @@ config_version=5
 [application]
 
 config/name="TextworldRPG"
-run/main_scene="res://Scenes/main_menu.tscn"
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-InitData="*res://Scripts/Initialization.gd"
-EventManager="*res://Scripts/EventManager.gd"
-WorldManager="*res://Scripts/WorldManager.gd"
-EditorManager="*res://Scripts/editor_manager.gd"
+InitData="*res://Scripts/AutoLoads/Initialization.gd"
+EventManager="*res://Scripts/AutoLoads/EventManager.gd"
+WorldManager="*res://Scripts/AutoLoads/WorldManager.gd"
+EditorManager="*res://Scripts/AutoLoads/editor_manager.gd"
 
 [display]
 
