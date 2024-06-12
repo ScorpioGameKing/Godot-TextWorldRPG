@@ -13,5 +13,6 @@ script = ExtResource("1_xtsrw")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+text_overrun_behavior = 3
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
