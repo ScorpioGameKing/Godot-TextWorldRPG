@@ -1,0 +1,197 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1n2ml2ausid2"]
+
+[ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_1y4om"]
+[ext_resource type="Script" path="res://Scripts/Editor/editor_exit.gd" id="2_sxija"]
+
+[node name="TileSetEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1y4om")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("1_1y4om")
+
+[node name="MainOptions" type="VBoxContainer" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="MenuPanel" type="PanelContainer" parent="MarginContainer/MainOptions"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="MenuButtones" type="HBoxContainer" parent="MarginContainer/MainOptions/MenuPanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Save" type="MarginContainer" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones/Save"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Save"
+
+[node name="Load" type="MarginContainer" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones/Load"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Load"
+
+[node name="New" type="MarginContainer" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones/New"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "New"
+
+[node name="Exit" type="MarginContainer" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="MarginContainer/MainOptions/MenuPanel/MenuButtones/Exit"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Exit"
+script = ExtResource("2_sxija")
+
+[node name="TileInfoOrganizer" type="HBoxContainer" parent="MarginContainer/MainOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TilesetInfo" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="CC" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/TitlePanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/TitlePanel/CC"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tileset Info"
+
+[node name="InfoPanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TileInfo" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="CC" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/TitlePanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/TitlePanel/CC"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Info"
+
+[node name="InfoPanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TileDisplay" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="CC" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/TitlePanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/TitlePanel/CC"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Display"
+
+[node name="InfoPanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TileSelectorOrganizer" type="VBoxContainer" parent="MarginContainer/MainOptions"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="CC" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TitlePanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TitlePanel/CC"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Selector"
+
+[node name="TileSelector" type="HBoxContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="TilePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TileSelector"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+
+[connection signal="button_up" from="MarginContainer/MainOptions/MenuPanel/MenuButtones/Exit/Button" to="MarginContainer/MainOptions/MenuPanel/MenuButtones/Exit/Button" method="_on_button_up"]

@@ -108,6 +108,7 @@ func _ready():
 	
 	var worldMapsJSONString = JSON.stringify(worldMaps, "\t")
 	#print(worldMapsJSONString)
+	deleteWorldMap(worldMapsPath, WorldMapsSaveID)
 	saveWorldMap(worldMapsPath, WorldMapsSaveID, worldMapsJSONString)
 	loadWorldMap(worldMapsPath, WorldMapsSaveID)
 	#print(MAP_DICT)
@@ -165,6 +166,16 @@ func loadWorldMap(path:String, id:String):
 		MAP_DICT = JSON.parse_string(_MAP_AS_TEXT)
 	else: 
 		print("No File")
+
+# Save map to file
+func deleteWorldMap(path:String, id:String):
+	print("Deleting World")
+	# If the world and dir exist we overwrite
+	if FileAccess.file_exists(path + id):
+		DirAccess.remove_absolute(path + id)
+	# if not we make the dir and save a new file
+	else: 
+		print("No Map To Clear")
 
 # TODO: Be Better
 func noiseToMap(height:Array, mapX:int, mapY:int):

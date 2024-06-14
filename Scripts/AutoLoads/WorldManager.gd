@@ -27,7 +27,7 @@ func _ready():
 	#deleteWorldMap(worldMapsPath, worldMapsSaveID)
 	#loadWorldMap(worldMapsPath, worldMapsSaveID)
 	plI.createNewPlayer("Player", "00ff00")
-	plI.setPosition([29,9])
+	plI.setPosition([0,9])
 	entitiesLive.append(WorldManager.plI.getPosition())
 	add_child(plI)
 
