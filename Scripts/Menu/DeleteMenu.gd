@@ -1,6 +1,6 @@
 extends Control
 
-var savedMapButton = preload("res://Scenes/Menu/loaded_save_button.tscn")
+var savedMapButton = preload("res://Scenes/Menu/delete_save_button.tscn")
 var savedMaps:Dictionary
 
 func indexSaves():
@@ -26,3 +26,7 @@ func indexSaves():
 func _on_visibility_changed():
 	if visible:
 		indexSaves()
+	else:
+		for mapButton in savedMaps:
+			savedMaps[mapButton].queue_free()
+		savedMaps.clear()

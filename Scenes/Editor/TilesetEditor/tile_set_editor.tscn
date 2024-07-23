@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1n2ml2ausid2"]
+[gd_scene load_steps=4 format=3 uid="uid://b1n2ml2ausid2"]
 
 [ext_resource type="Theme" uid="uid://k86iiekmveix" path="res://Themes/general_ui.tres" id="1_1y4om"]
+[ext_resource type="Script" path="res://Scripts/Editor/TilesetEditor/tile_set_editor.gd" id="2_nktyw"]
 [ext_resource type="Script" path="res://Scripts/Editor/editor_exit.gd" id="2_sxija"]
 
 [node name="TileSetEditor" type="Control"]
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1y4om")
+script = ExtResource("2_nktyw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -116,6 +118,48 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_1y4om")
 
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TilesetTag" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows/TilesetTag"]
+layout_mode = 2
+text = "Tileset Tag:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows/TilesetTag"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ts1"
+
+[node name="SelectedLayer" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows/SelectedLayer"]
+layout_mode = 2
+text = "Selected Layer:"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/MainOptions/TileInfoOrganizer/TilesetInfo/InfoPanel/ScrollContainer/Rows/SelectedLayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 1
+allow_reselect = true
+popup/item_0/text = "entities"
+popup/item_0/id = 0
+popup/item_1/text = "terrain"
+popup/item_1/id = 1
+
 [node name="TileInfo" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -140,6 +184,161 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_1y4om")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1y4om")
+
+[node name="TileName" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileName"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Name:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+text = "BG"
+
+[node name="TileSymbol" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileSymbol"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Symbol:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileSymbol"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+text = "x"
+
+[node name="TileType" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileType"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Type:"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileType"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+item_count = 3
+selected = 0
+popup/item_0/text = "Terrain"
+popup/item_0/id = 0
+popup/item_1/text = "Prop"
+popup/item_1/id = 2
+popup/item_2/text = "Container"
+popup/item_2/id = 2
+
+[node name="TileColor" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileColor"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Tile Color:"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1y4om")
+text = "553565"
+
+[node name="TileFlags" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Title" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags"]
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Title/CenterContainer"]
+layout_mode = 2
+text = "Tile Flags:"
+horizontal_alignment = 1
+
+[node name="Flags" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Solid" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Solid"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Is Solid:"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Solid"]
+layout_mode = 2
+button_pressed = true
+
+[node name="Interact" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Interact"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Can Interact:"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Interact"]
+layout_mode = 2
+
+[node name="IsWarp" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/IsWarp"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Warp Tile:"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/IsWarp"]
+layout_mode = 2
+
+[node name="Harmful" type="HBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_1y4om")
+
+[node name="Label" type="Label" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Harmful"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+text = "Harmful:"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileInfo/InfoPanel/ScrollContainer/Rows/TileFlags/Flags/Harmful"]
+layout_mode = 2
 
 [node name="TileDisplay" type="VBoxContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer"]
 layout_mode = 2
@@ -166,6 +365,33 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_1y4om")
 
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/InfoPanel"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/InfoPanel/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/InfoPanel/CenterContainer/Panel"]
+layout_mode = 2
+
+[node name="DisplayTile" type="RichTextLabel" parent="MarginContainer/MainOptions/TileInfoOrganizer/TileDisplay/InfoPanel/CenterContainer/Panel/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_1y4om")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=553565]x[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
 [node name="TileSelectorOrganizer" type="VBoxContainer" parent="MarginContainer/MainOptions"]
 layout_mode = 2
 theme = ExtResource("1_1y4om")
@@ -184,14 +410,293 @@ layout_mode = 2
 theme = ExtResource("1_1y4om")
 text = "Tile Selector"
 
-[node name="TileSelector" type="HBoxContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer"]
+[node name="TilePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer"]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_1y4om")
 
-[node name="TilePanel" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TileSelector"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TileSelector" type="HBoxContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer"]
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_1y4om")
+
+[node name="Tile" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=1e6649]g[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile2" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile2/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=666666]p[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile3" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile3"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile3/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=6a8758]f[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile4" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile4"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile4/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=683627]d[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile5" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile5"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile5/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=ffe8a3]s[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile6" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile6"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile6/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=c3cb71]T[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile7" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile7"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile7/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=1b85b8]~[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile8" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile8"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile8/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=5c8084]m[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile9" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile9"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile9/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=ffffff]w[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Tile10" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile10"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/Tile10/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=553565]x[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="NewTile" type="PanelContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/NewTile"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainOptions/TileSelectorOrganizer/TilePanel/ScrollContainer/TileSelector/NewTile/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "NEW
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="button_up" from="MarginContainer/MainOptions/MenuPanel/MenuButtones/Exit/Button" to="MarginContainer/MainOptions/MenuPanel/MenuButtones/Exit/Button" method="_on_button_up"]

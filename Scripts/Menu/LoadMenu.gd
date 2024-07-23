@@ -26,3 +26,7 @@ func indexSaves():
 func _on_visibility_changed():
 	if visible:
 		indexSaves()
+	else:
+		for mapButton in savedMaps:
+			savedMaps[mapButton].queue_free()
+		savedMaps.clear()
